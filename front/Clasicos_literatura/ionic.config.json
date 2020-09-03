@@ -1,0 +1,7 @@
+{
+  "name": "Clasicos_literatura",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
