@@ -1,9 +1,33 @@
-<ion-header>
+<ion-header style="position: unset;" no-border>
   <ion-toolbar>
-    <ion-title>Todos los libros</ion-title>
+    <ion-title style="text-align: center;">Todos los libros</ion-title>
   </ion-toolbar>
+
+  <ion-grid fixed style="background-color: white;"> 
+  <ion-searchbar style="background-color: white;"></ion-searchbar>
+</ion-grid>
+  
 </ion-header>
 
 <ion-content>
+
+  <ion-grid fixed>   
+    <ion-row>
+      <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12"
+      *ngFor = 'let caperucita of [1,2,3,1,2,3,1,2,3,1];'>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title style="text-align: center;">Caperucita roja</ion-card-title>
+          </ion-card-header>
+          <img src="https://www.picarona.net/wp-content/uploads/2016/01/20150701101706.jpg"/>
+          <ion-card-content style="align-content: center;">
+            <ion-button expand="block" color="success">Leer</ion-button>
+          </ion-card-content>
+        </ion-card>    
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  
 
 </ion-content>
