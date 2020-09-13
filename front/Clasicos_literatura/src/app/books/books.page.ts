@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AllbooksPage } from './allbooks/allbooks.page';
 
 @Component({
   selector: 'app-books',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksPage implements OnInit {
 
-  constructor() { }
+books: number;
+
+  constructor() { 
+   this.books =1;
+  }
 
   ngOnInit() {
   }

@@ -10,8 +10,14 @@ const routes: Routes = [
     component: BooksPage,
     children:[
       {
+        path: '',
+        redirectTo: '/books/todos',
+        pathMatch: 'full'
+      },
+      {
         path:'todos',
-        loadChildren: './allbooks/allbooks.module#AllbooksPageModule'
+        loadChildren: () => import('./allbooks/allbooks.module').then( m => m.AllbooksPageModule)
+        //loadChildren: './allbooks/allbooks.module#AllbooksPageModule'
       },
       {
         path:'autor',
@@ -26,11 +32,6 @@ const routes: Routes = [
         loadChildren: './quiz/quiz.module#QuizPageModule'
       }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/books/todos',
-    pathMatch: 'full'
   }
 ];
 

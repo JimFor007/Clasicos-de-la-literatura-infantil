@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllbooksPage implements OnInit {
 
-  constructor() { }
+  caperucita= ['Caperucita Roja'];
+  
+  constructor() { 
+  }
 
   ngOnInit() {
   }
