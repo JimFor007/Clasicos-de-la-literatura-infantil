@@ -26,10 +26,6 @@ const routes: Routes = [
       {
         path:'favoritos',
         loadChildren: './favorites/favorites.module#FavoritesPageModule'
-      },
-      {
-        path:'quiz',
-        loadChildren: './quiz/quiz.module#QuizPageModule'
       }
     ]
   }
