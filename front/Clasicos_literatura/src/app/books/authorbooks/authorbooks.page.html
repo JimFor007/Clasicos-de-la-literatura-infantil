@@ -1,8 +1,61 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title style="text-align: center;">Libros por autor</ion-title>
+    <ion-title style="text-align: center; margin-bottom: 15px;">Libros por autor</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-searchbar style="background-color: white; margin-bottom: 10px;"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12"
+      *ngFor = 'let book of [1,2,3,4];'>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Carlo collodi</ion-card-subtitle>
+            <ion-item>
+              <ion-avatar>
+                <ion-img src="https://www.elsiglodetorreon.com.mx/m/i/2017/10/992228.jpeg">
+                </ion-img>
+              </ion-avatar>
+              <ion-button size="small" fill="outline" slot="end">Biografía</ion-button>
+            </ion-item>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12"
+                *ngFor = 'let book of [1,2,3];'>
+                <ion-card>
+                  <ion-card-header>
+                  <ion-card-subtitle>Las aventuras de pinocho</ion-card-subtitle>
+                  </ion-card-header>
+                  <img src="https://www.libreriasinopsis.com/imagenes/9788444/978844416101.JPG"/>
+                  <ion-card-content style="align-content: center;">
+                    <ion-row>
+                      <ion-col>
+                        <ion-button size="small" expand="block" color="success">Leer</ion-button>
+                      </ion-col>
+                      <ion-col>
+                        <div *ngIf="true">
+                          <ion-button size="small" expand="block"  color="success">Quiz</ion-button>
+                        </div>
+                        <div *ngIf="false">
+                          <ion-button size="small" expand="block"  color="medium">Quiz</ion-button>
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                  </ion-card-content>
+                </ion-card>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
