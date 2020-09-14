@@ -21,11 +21,11 @@ const routes: Routes = [
       },
       {
         path:'autor',
-        loadChildren: './authorbooks/authorbooks.module#AuthorbooksPageModule'
+        loadChildren: () => import('./authorbooks/authorbooks.module').then( m => m.AuthorbooksPageModule)
       },
       {
         path:'favoritos',
-        loadChildren: './favorites/favorites.module#FavoritesPageModule'
+        loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
       }
     ]
   }
