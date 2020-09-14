@@ -1,6 +1,6 @@
 <ion-header style="position: unset;" no-border>
   <ion-toolbar>
-    <ion-title style="text-align: center;">Todos los libros</ion-title>
+    <ion-title>Todos los libros</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -17,19 +17,24 @@
   <ion-grid fixed>   
     <ion-row>
       <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12"
-      *ngFor = 'let caperucita of [1,2,3,1,2,3,1,2,3,1];'>
+      *ngFor = 'let book of books;'>
         <ion-card>
           <ion-card-header>
-            <ion-card-title style="text-align: center;">Caperucita roja</ion-card-title>
+            <ion-card-title style="text-align: center;">{{book.titulo}}</ion-card-title>
           </ion-card-header>
-          <img src="../../../assets/images/Caperutcita_Roja.jpg"/>
+          <img src="{{ book.imagen }}"/>
           <ion-card-content style="align-content: center;">
             <ion-row>
               <ion-col>
                 <ion-button expand="block" color="success">Leer</ion-button>
               </ion-col>
               <ion-col>
-                <ion-button expand="block" color="medium">Quiz</ion-button>
+                <div *ngIf="book.trivia">
+                  <ion-button expand="block"  color="success">Quiz</ion-button>
+                </div>
+                <div *ngIf="!book.trivia">
+                  <ion-button expand="block"  color="medium">Quiz</ion-button>
+                </div>
               </ion-col>
             </ion-row>
           </ion-card-content>
