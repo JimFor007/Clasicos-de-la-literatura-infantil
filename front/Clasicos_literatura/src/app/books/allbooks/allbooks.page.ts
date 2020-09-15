@@ -17,7 +17,6 @@ export class AllbooksPage implements OnInit {
 
   ngOnInit() {
     this.books = this.testService.getAllBooks();
-    console.log(this.books);
   }
 
 }
