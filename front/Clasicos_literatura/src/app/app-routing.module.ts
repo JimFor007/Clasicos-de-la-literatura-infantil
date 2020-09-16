@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'quiz',
     loadChildren: () => import('./books/quiz/quiz.module').then( m => m.QuizPageModule)
   },
+  {
+    path: 'autores',
+    loadChildren: () => import('./autores/autores.module').then( m => m.AutoresPageModule)
+  },
 
 ];
 
