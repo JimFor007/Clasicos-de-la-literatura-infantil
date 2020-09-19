@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { book } from '../../models/libro.model'
 import { TestService } from '../../Services/test.service';
+import { author } from 'src/app/models/author.model';
 
 @Component({
   selector: 'app-allbooks',
@@ -10,13 +10,13 @@ import { TestService } from '../../Services/test.service';
 })
 export class AllbooksPage implements OnInit {
 
-  books:book[] = [];
+  authors:author[] = [];
   
   constructor(private testService: TestService) { 
   }
 
   ngOnInit() {
-    this.books = this.testService.getAllBooks();
+    this.authors = this.testService.getAllAuthors();
   }
 
 }

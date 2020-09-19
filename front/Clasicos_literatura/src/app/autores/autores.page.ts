@@ -8,6 +8,7 @@ import { author } from '../models/author.model';
   styleUrls: ['./autores.page.scss'],
 })
 export class AutoresPage implements OnInit {
+  
   authors:author[] = [];
   constructor(private testService: TestService) { }
 
