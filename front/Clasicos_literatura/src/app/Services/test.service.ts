@@ -50,12 +50,24 @@ export class TestService {
     name:"Carlo collodi",
     image:"https://www.elsiglodetorreon.com.mx/m/i/2017/10/992228.jpeg",
     books:[{
-      titulo: "pinocho",
+      titulo: "  pinocho",
       imagen: "../../../assets/images/Cerditos.jpg",
       trivia: true
     },{
-      titulo: "pinocho la venganza",
-      imagen: "../../../assets/images/Cerditos.jpg",
+      titulo: "Giannettino",
+      imagen: "../../../assets/images/Giannettino.jpg",
+      trivia: true
+    }]
+  },{
+    name:"Joaquín Salvador Lavado Tejón",
+    image:"https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic.historyplay.tv%2Ffiles%2Fquino_y_mafalda.jpg&imgrefurl=https%3A%2F%2Flatam.historyplay.tv%2Fhoy-en-la-historia%2Fnace-mafalda-personaje-de-historieta-creado-por-quino&tbnid=TW1S_hmlr-6o2M&vet=12ahUKEwjg2oHrkPTrAhUstlkKHeAbBnEQMygAegUIARCxAQ..i&docid=OJGYvQBueZbY1M&w=433&h=509&q=quien%20escribio%20mafalda&hl=es-419&ved=2ahUKEwjg2oHrkPTrAhUstlkKHeAbBnEQMygAegUIARCxAQ",
+    books:[{
+      titulo: "Mafalda",
+      imagen: "../../../assets/images/Mafalda.jpg",
+      trivia: true
+    },{
+      titulo: "Gente en su sitio",
+      imagen: "../../../assets/images/GenteEnSuSitio.jpg",
       trivia: true
     }]
   },{
