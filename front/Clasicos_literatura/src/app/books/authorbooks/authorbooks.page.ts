@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TestService } from 'src/app/Services/test.service';
+import { author } from 'src/app/models/author.model';
 
 @Component({
   selector: 'app-authorbooks',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorbooksPage implements OnInit {
 
-  constructor() { }
+  authors:author[] = [];
+  constructor(private testService: TestService) { }
 
   ngOnInit() {
+    this.authors=this.testService.getAllAuthors();
   }
 
 }

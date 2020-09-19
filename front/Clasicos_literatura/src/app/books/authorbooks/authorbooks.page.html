@@ -13,13 +13,13 @@
   <ion-grid>
     <ion-row>
       <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12"
-      *ngFor = 'let book of [1,2,3,4];'>
+      *ngFor = 'let author of authors'>
         <ion-card>
           <ion-card-header>
-            <ion-card-subtitle>Carlo collodi</ion-card-subtitle>
+            <ion-card-subtitle>{{author.name}}</ion-card-subtitle>
             <ion-item>
               <ion-avatar>
-                <ion-img src="https://www.elsiglodetorreon.com.mx/m/i/2017/10/992228.jpeg">
+                <ion-img src="{{author.image}}">
                 </ion-img>
               </ion-avatar>
               <ion-button size="small" fill="outline" slot="end">Biografía</ion-button>
@@ -28,12 +28,12 @@
           <ion-card-content>
             <ion-grid>
               <ion-slides>
-                <ion-slide *ngFor = 'let book of ["Caperucita","Pinocho","Los cerditos"];'>
+                <ion-slide *ngFor = 'let book of author.books'>
                   <ion-card>
                     <ion-card-header>
-                    <ion-card-subtitle> {{book}}</ion-card-subtitle>
+                    <ion-card-subtitle> {{book.titulo}}</ion-card-subtitle>
                     </ion-card-header>
-                    <img src="https://www.picarona.net/wp-content/uploads/2016/01/20150701101706.jpg"/>
+                    <img src="{{book.imagen}}"/>
                     <ion-card-content style="align-content: center;">
                       <ion-row>
                         <ion-col>
