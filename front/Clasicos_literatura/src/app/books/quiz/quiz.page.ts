@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { author } from 'src/app/models/author.model';
+import { TestService } from 'src/app/Services/test.service';
 
 @Component({
   selector: 'app-quiz',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizPage implements OnInit {
 
-  constructor() { }
-
+  authors:author[] = [];
+  
+  constructor(private testService: TestService) { 
+  }
+  
   ngOnInit() {
+    this.authors = this.testService.getAllAuthors();
   }
 
 }

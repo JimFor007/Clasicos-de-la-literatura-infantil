@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { book } from '../models/libro.model';
 import {author} from '../models/author.model';
+import { quiz } from '../models/quiz.model';
 
 
 @Injectable({
@@ -8,17 +9,40 @@ import {author} from '../models/author.model';
 })
 export class TestService {
 
+  
+
   authors: author[]=[{
     name:"Carlo collodi",
     image:"https://www.elsiglodetorreon.com.mx/m/i/2017/10/992228.jpeg",
     books:[{
       titulo: "  pinocho",
       imagen: "../../../assets/images/Cerditos.jpg",
-      trivia: true
+      trivia: true,
+      quizes: [{
+        question: "Cómo te llamas",
+        option1: "1",
+        option2: "2",
+        option3: "3",
+        correctAnswer: 1
+      },
+    {
+      question: "Cuántos años tienes",
+        option1: "1",
+        option2: "2",
+        option3: "3",
+        correctAnswer: 1
+    }]
     },{
       titulo: "Giannettino",
       imagen: "../../../assets/images/Giannettino.jpg",
-      trivia: true
+      trivia: true,
+      quizes: [{
+        question: "Cómo te llamas",
+        option1: "1",
+        option2: "2",
+        option3: "3",
+        correctAnswer: 1
+      }]
     }]
   },{
     name:"Joaquín Salvador Lavado Tejón",
@@ -26,11 +50,25 @@ export class TestService {
     books:[{
       titulo: "Mafalda",
       imagen: "../../../assets/images/Mafalda.jpg",
-      trivia: true
+      trivia: true,
+      quizes: [{
+        question: "Cómo te llamas",
+        option1: "1",
+        option2: "2",
+        option3: "3",
+        correctAnswer: 1
+      }]
     },{
       titulo: "Gente en su sitio",
       imagen: "../../../assets/images/GenteEnSuSitio.jpg",
-      trivia: true
+      trivia: true,
+      quizes: [{
+        question: "Cómo te llamas",
+        option1: "1",
+        option2: "2",
+        option3: "3",
+        correctAnswer: 1
+      }]
     }]
   },{
     name:"Charles Perraulti",
@@ -38,11 +76,25 @@ export class TestService {
     books:[{
       titulo: "Caperucita roja",
       imagen: "../../../assets/images/Caperutcita_Roja.jpg",
-      trivia: true
+      trivia: true,
+      quizes: [{
+        question: "Cómo te llamas",
+        option1: "1",
+        option2: "2",
+        option3: "3",
+        correctAnswer: 1
+      }]
     },{
       titulo: "El gato con botas",
       imagen: "../../../assets/images/Gato_Con_Botas.jpg",
-      trivia: true
+      trivia: true,
+      quizes: [{
+        question: "Cómo te llamas",
+        option1: "1",
+        option2: "2",
+        option3: "3",
+        correctAnswer: 1
+      }]
     }]
   },{
     name:"Julio verne",
@@ -50,11 +102,25 @@ export class TestService {
     books:[{
       titulo: "Vuelta al mundo en ochenta dias",
       imagen: "../../../assets/images/VeinteLeguasDeViajeSubmarino.jpg",
-      trivia: true
+      trivia: true,
+      quizes: [{
+        question: "Cómo te llamas",
+        option1: "1",
+        option2: "2",
+        option3: "3",
+        correctAnswer: 1
+      }]
     },{
       titulo: "Veinte lenguas de viaje submarino",
       imagen: "../../../assets/images/VueltaAlMundoEnOchentaDias.jpg",
-      trivia: true
+      trivia: true,
+      quizes: [{
+        question: "Cómo te llamas",
+        option1: "1",
+        option2: "2",
+        option3: "3",
+        correctAnswer: 1
+      }]
     }]
   }
   ]
