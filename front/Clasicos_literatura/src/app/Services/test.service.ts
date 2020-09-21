@@ -33,27 +33,27 @@ export class TestService {
       trivia: true
     }]
   },{
-    name:"Charles bukowski",
+    name:"Charles Perraulti",
     image:"https://elcultural.com/wp-content/uploads/2019/04/Charles-Bukowski-696x403.jpg",
     books:[{
-      titulo: "Women",
-      imagen: "../../../assets/images/Cerditos.jpg",
+      titulo: "Caperucita roja",
+      imagen: "../../../assets/images/Caperutcita_Roja.jpg",
       trivia: true
     },{
-      titulo: "Hollywood",
-      imagen: "../../../assets/images/Cerditos.jpg",
-      trivia: true
-    },{
-      titulo: "Hollywood",
-      imagen: "../../../assets/images/Cerditos.jpg",
+      titulo: "El gato con botas",
+      imagen: "../../../assets/images/Gato_Con_Botas.jpg",
       trivia: true
     }]
   },{
-    name:"UN PUTO",
+    name:"Julio verne",
     image:"https://elcultural.com/wp-content/uploads/2019/04/Charles-Bukowski-696x403.jpg",
     books:[{
-      titulo: "Women",
-      imagen: "../../../assets/images/Caperutcita_Roja.jpg",
+      titulo: "Vuelta al mundo en ochenta dias",
+      imagen: "../../../assets/images/VeinteLeguasDeViajeSubmarino.jpg",
+      trivia: true
+    },{
+      titulo: "Veinte lenguas de viaje submarino",
+      imagen: "../../../assets/images/VueltaAlMundoEnOchentaDias.jpg",
       trivia: true
     }]
   }
