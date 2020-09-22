@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'autores',
     loadChildren: () => import('./autores/autores.module').then( m => m.AutoresPageModule)
   },
+  {
+    path: 'biography/:author',
+    loadChildren: () => import('./biography/biography.module').then( m => m.BiographyPageModule)
+  },
 
 ];
 
