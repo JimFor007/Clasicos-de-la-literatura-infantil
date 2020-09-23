@@ -24,7 +24,7 @@
               </ion-col>
               <ion-col>
                 <div *ngIf= "book.trivia">
-                  <ion-button routerLink="/quiz" expand="block" color="success">Quiz</ion-button>
+                  <ion-button (click)= "quiz(book.titulo)" expand="block" color="success">Quiz</ion-button>
                 </div>
                 <div *ngIf= "!book.trivia">
                   <ion-button expand="block" color="medium">Quiz</ion-button>

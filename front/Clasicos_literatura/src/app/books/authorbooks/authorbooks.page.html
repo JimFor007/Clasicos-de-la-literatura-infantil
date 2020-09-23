@@ -41,7 +41,7 @@
                         </ion-col>
                         <ion-col>
                           <div *ngIf="true">
-                            <ion-button size="small" expand="block"  color="success">Quiz</ion-button>
+                            <ion-button (click)= "quiz(book.titulo)" size="small" expand="block"  color="success">Quiz</ion-button>
                           </div>
                           <div *ngIf="false">
                             <ion-button size="small" expand="block"  color="medium">Quiz</ion-button>
