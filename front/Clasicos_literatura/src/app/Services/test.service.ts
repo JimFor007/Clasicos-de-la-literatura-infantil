@@ -18,6 +18,7 @@ export class TestService {
       titulo: "  pinocho",
       imagen: "../../../assets/images/Cerditos.jpg",
       trivia: true,
+      favorito: true,
       quizes: [{
         question: "Cómo te llamas",
         option1: "1",
@@ -36,6 +37,7 @@ export class TestService {
       titulo: "Giannettino",
       imagen: "../../../assets/images/Giannettino.jpg",
       trivia: true,
+      favorito: true,
       quizes: [{
         question: "Cómo te llamas",
         option1: "1",
@@ -51,6 +53,7 @@ export class TestService {
       titulo: "Mafalda",
       imagen: "../../../assets/images/Mafalda.jpg",
       trivia: true,
+      favorito: false,
       quizes: [{
         question: "Cómo te llamas",
         option1: "1",
@@ -62,6 +65,7 @@ export class TestService {
       titulo: "Gente en su sitio",
       imagen: "../../../assets/images/GenteEnSuSitio.jpg",
       trivia: true,
+      favorito: false,
       quizes: [{
         question: "Cómo te llamas",
         option1: "1",
@@ -77,6 +81,7 @@ export class TestService {
       titulo: "Caperucita roja",
       imagen: "../../../assets/images/Caperutcita_Roja.jpg",
       trivia: true,
+      favorito: true,
       quizes: [{
         question: "Cómo te llamas",
         option1: "1",
@@ -88,6 +93,7 @@ export class TestService {
       titulo: "El gato con botas",
       imagen: "../../../assets/images/Gato_Con_Botas.jpg",
       trivia: true,
+      favorito: true,
       quizes: [{
         question: "Cómo te llamas",
         option1: "1",
@@ -103,6 +109,7 @@ export class TestService {
       titulo: "Vuelta al mundo en ochenta dias",
       imagen: "../../../assets/images/VeinteLeguasDeViajeSubmarino.jpg",
       trivia: true,
+      favorito: true,
       quizes: [{
         question: "Cómo te llamas",
         option1: "1",
@@ -114,6 +121,7 @@ export class TestService {
       titulo: "Veinte lenguas de viaje submarino",
       imagen: "../../../assets/images/VueltaAlMundoEnOchentaDias.jpg",
       trivia: true,
+      favorito: true,
       quizes: [{
         question: "Cómo te llamas",
         option1: "1",
