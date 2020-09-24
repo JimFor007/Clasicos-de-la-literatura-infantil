@@ -31,7 +31,8 @@
                 <ion-slide *ngFor = 'let book of author.books'>
                   <ion-card>
                     <ion-card-header>
-                    <ion-card-subtitle> {{book.titulo}}</ion-card-subtitle>
+                      <ion-card-title style="text-align: center;">{{book.titulo}}</ion-card-title>
+                    <ion-icon (click)= "book.favorito=true" name= "bookmarks-outline"></ion-icon>
                     </ion-card-header>
                     <img src="{{book.imagen}}"/>
                     <ion-card-content style="align-content: center;">

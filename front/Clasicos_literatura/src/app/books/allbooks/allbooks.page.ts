@@ -13,12 +13,21 @@ import { book } from 'src/app/models/libro.model';
 export class AllbooksPage implements OnInit {
 
   authors:author[] = [];
-  
+  favorite:string="heart-outline";
+  favoriteB:boolean=false;
   constructor(private testService: TestService, private router: Router) { 
   }
 
   ngOnInit() {
     this.authors = this.testService.getAllAuthors();
+  }
+  
+  toggle(): void {
+  if(this.favorite == "heart-outline"){
+    this.favorite= "heart"
+  }else{
+    this.favorite= "heart-outline"
+  }
   }
 
   quiz(book: string){

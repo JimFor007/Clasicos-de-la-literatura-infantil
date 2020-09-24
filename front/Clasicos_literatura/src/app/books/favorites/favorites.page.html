@@ -12,7 +12,7 @@
     <ion-row>
       <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12" *ngFor= ' let author of authors'>
         <ion-card *ngFor= ' let book of author.books'>
-          <div *ngIf="book.favorito">
+          <div *ngIf= "book.favorito">
             <ion-card-header>
               <ion-card-title style="text-align: center;">{{book.titulo}}</ion-card-title>
             </ion-card-header>
