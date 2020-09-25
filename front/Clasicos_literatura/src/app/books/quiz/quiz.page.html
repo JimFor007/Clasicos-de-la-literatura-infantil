@@ -13,7 +13,7 @@
       <ion-col>
         <ion-card>
           <ion-card-header>
-            <ion-card-title style="text-align: center;"> Caperucita roja</ion-card-title>
+            <ion-card-title style="text-align: center;"> {{book}}</ion-card-title>
           </ion-card-header>
           <ion-img src="https://data.ecasals.net/img/04/g/9788478648511_04_g.jpg"></ion-img>
           <ion-card-content>
@@ -25,15 +25,9 @@
   </ion-grid>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size-lg="6" size-md="6" size-sm="6" size-xs="12"
-        *ngFor= 'let question of ["Pregunta 1","Pregunta 2", "Pregunta 3"];'>
+      <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12">
         <ion-card>
-          <ion-card-header>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </ion-card-header>
-          <ion-card-content>
-            <app-questions></app-questions>
-          </ion-card-content>
+          <app-questions></app-questions>
         </ion-card>
       </ion-col>
     </ion-row>
@@ -41,11 +35,9 @@
   <ion-grid>
     <ion-row>
       <ion-col></ion-col>
-      <ion-col size-lg="12" size-md="4" size-sm="6" size-xs="12">
-        <ion-button (click)="verifyQuiz()" style="margin-bottom: 15px;" expand="block" color="success"> Enviar
-        </ion-button>
-        <ion-button routerLink="/" expand="block" color="danger"> Salir </ion-button>
-      </ion-col>
+      <ion-col>
+        <ion-button routerLink="/" expand="block"color="danger"> Salir </ion-button>
+      </ion-col> 
       <ion-col></ion-col>
     </ion-row>
   </ion-grid>

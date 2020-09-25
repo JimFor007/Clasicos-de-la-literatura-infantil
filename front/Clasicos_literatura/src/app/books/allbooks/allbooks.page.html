@@ -15,7 +15,7 @@
         <ion-card *ngFor=' let book of author.books'>
           <ion-card-header>
             <ion-card-title style="text-align: center;">{{book.titulo}}</ion-card-title>
-            <ion-icon (click)= "book.favorito=true" name= "bookmarks-outline"></ion-icon>
+            <ion-icon (click)= "presentAlertConfirm() && book.favorito=true" name= "bookmarks-outline"></ion-icon>
           </ion-card-header>
           <img src="{{ book.imagen }}" />
           <ion-card-content style="align-content: center;">

@@ -1,15 +1,28 @@
-<ion-radio-group  (ionChange)= "add($event)">
-  <ion-item>
-    <ion-label>Answer 1</ion-label>
-    <ion-radio  value="choosed1"></ion-radio>
-  </ion-item>
-  <ion-item>
-    <ion-label>Answer 2</ion-label>
-    <ion-radio  value="choosed2"></ion-radio>
-  </ion-item>
-  <ion-item>
-    <ion-label>Answer 3</ion-label>
-    <ion-radio value="choosed3"></ion-radio>
-  </ion-item>
-</ion-radio-group>
-{{choosed}}
+<ion-card-header>
+{{tetha}}
+</ion-card-header>
+<ion-card-content>
+  <ion-radio-group [(ngModel)] ="choosed">
+    <ion-item>
+      <ion-label>Answer 1</ion-label>
+      <ion-radio  value="choosed1"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Answer 2</ion-label>
+      <ion-radio  value="choosed2"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Answer 3</ion-label>
+      <ion-radio value="choosed3"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button size="small" expand="block" color="success" (click)="add()">Siguiente</ion-button>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card-content>

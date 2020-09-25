@@ -13,10 +13,10 @@ import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 export class QuizPage implements OnInit {
 
   authors:author[] = [];
-  book: string;
-  choosed:string;
+  book: string = "Caperucita Roja";
   
-  alphas = ["1","2","3"] 
+  
+
   constructor(private testService: TestService, private router: ActivatedRoute) { 
     this.authors = this.testService.getAllAuthors();
   }
@@ -24,12 +24,5 @@ export class QuizPage implements OnInit {
   ngOnInit() {
     
   }
-
-  verifyQuiz(){
-    this.alphas.forEach(element => {
-      console.log(element)
-    });
-  }
-  
 
 }

@@ -6,7 +6,6 @@
   <ion-grid fixed style="background-color: white;"> 
   <ion-searchbar style="background-color: white;"></ion-searchbar>
 </ion-grid>
-  
 </ion-header>
 
 <ion-content>
@@ -27,7 +26,7 @@
           </ion-card-header>
           <ion-card-content>
             <ion-grid>
-              <ion-slides>
+              <ion-slides pager="true">
                 <ion-slide *ngFor = 'let book of author.books'>
                   <ion-card>
                     <ion-card-header>

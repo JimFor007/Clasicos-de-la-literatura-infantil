@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestService } from 'src/app/Services/test.service';
 import { author } from 'src/app/models/author.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-authorbooks',
@@ -11,10 +11,14 @@ import { Router } from '@angular/router';
 export class AuthorbooksPage implements OnInit {
 
   authors:author[] = [];
-  constructor(private testService: TestService, private router: Router) { }
+  name :string;
+  constructor(private testService: TestService, private router: Router,private router2: ActivatedRoute) { }
 
   ngOnInit() {
     this.authors=this.testService.getAllAuthors();
+    this.router2.paramMap.subscribe(params=>{
+      this.name= params.get('author')     
+  });
   }
 
   quiz(book: string){
