@@ -4,11 +4,11 @@
 <ion-card-content>
   <ion-radio-group [(ngModel)] ="choosed">
     <ion-item>
-      <ion-label>Answer 1</ion-label>
+      <ion-label>{{alphas[0]}}</ion-label>
       <ion-radio  value="choosed1"></ion-radio>
     </ion-item>
     <ion-item>
-      <ion-label>Answer 2</ion-label>
+      <ion-label>{{alphas[1]}}</ion-label>
       <ion-radio  value="choosed2"></ion-radio>
     </ion-item>
     <ion-item>
@@ -20,7 +20,7 @@
     <ion-row>
       <ion-col></ion-col>
       <ion-col>
-        <ion-button size="small" expand="block" color="success" (click)="add()">Siguiente</ion-button>
+        <ion-button size="small" expand="block" color="success" (click)= "add()">Siguiente</ion-button>
       </ion-col>
       <ion-col></ion-col>
     </ion-row>
