@@ -43,6 +43,10 @@ const routes: Routes = [
     path: 'biography/:author',
     loadChildren: () => import('./biography/biography.module').then( m => m.BiographyPageModule)
   },
+  {
+    path: 'notes',
+    loadChildren: () => import('./notes/notes.module').then( m => m.NotesPageModule)
+  },
 
 ];
 
