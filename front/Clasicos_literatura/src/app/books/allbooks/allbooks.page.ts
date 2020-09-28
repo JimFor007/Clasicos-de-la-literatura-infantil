@@ -24,16 +24,16 @@ export class AllbooksPage implements OnInit {
   }
 
   
-  async presentAlertConfirm() {
+  async presentAlertConfirm(book: book) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Libro añadido a favoritos',
+      header: book.favorito == true? "removido de favoritos": "añadido de favoritos",
       message: '',
       buttons: [
          {
           text: 'Okay',
           handler: () => {
-            console.log('Confirm Okay');
+            book.favorito = book.favorito==true? false:true
           }
         }
       ]
@@ -41,15 +41,6 @@ export class AllbooksPage implements OnInit {
 
     await alert.present();
   }
-  
-  toggle(): void {
-    if(this.favorite == "heart-outline"){
-      this.favorite= "heart"
-    }else{
-      this.favorite= "heart-outline"
-    }
-    this.presentAlertConfirm();
-    }
 
   quiz(book: string){
     this.router.navigate(["/quiz"]);
