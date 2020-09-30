@@ -20,10 +20,13 @@
             <ion-card-content style="align-content: center;">
               <ion-row>
                 <ion-col>
-                  <ion-icon class="icon icon-large"  name="create" style="margin-left: 50%;"></ion-icon>
+                  <ion-icon routerLink="/notes" class="icon icon-large"  name="create" ></ion-icon>
                 </ion-col>
                 <ion-col>
-                  <ion-icon class="icon icon-large" name="heart" style="margin-right: 50%;" (click)="book.favorito=false"></ion-icon>
+                  <ion-icon class="icon icon-large" name="list-sharp"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  <ion-icon class="icon icon-large" name="heart"  (click)="book.favorito=false"></ion-icon>
                 </ion-col>
               </ion-row>
             </ion-card-content>

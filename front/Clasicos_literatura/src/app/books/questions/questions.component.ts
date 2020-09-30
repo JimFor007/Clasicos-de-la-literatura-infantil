@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class QuestionsComponent implements OnInit {
 
   choosed:string;
-
   alphas = ["Answer 1","Answer 2","Answer 3"]
 
   bethas:string[] = ["Cómo", "Qué", "Quién"]
@@ -21,7 +20,9 @@ export class QuestionsComponent implements OnInit {
   answers:string[]=[];
   
 
-  constructor(public alertController: AlertController,private router: Router) { }
+  constructor(public alertController: AlertController,private router: Router, private storage: Storage) { }
+
+  
 
   ngOnInit() {
   }
