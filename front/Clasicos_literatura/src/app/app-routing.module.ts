@@ -47,6 +47,11 @@ const routes: Routes = [
     path: 'notes',
     loadChildren: () => import('./notes/notes.module').then( m => m.NotesPageModule)
   },
+  {
+    path: 'lectura-libro',
+    loadChildren: () => import('./lectura-libro/lectura-libro.module').then( m => m.LecturaLibroPageModule)
+  },
+
 
 ];
 

@@ -29,17 +29,27 @@
               <ion-slides pager="true">
                 <ion-slide *ngFor = 'let book of author.books'>
                   <ion-grid>
-                    <ion-row>
+                    <ion-row>                        
                       <ion-col>
+                        <ion-row>
+                          <ion-col>
+                            <div *ngIf="book.favorito == false">
+                              <ion-icon (click)= "presentAlertConfirm(book)" name= "heart-outline"></ion-icon>
+                            </div>
+                            <div *ngIf="book.favorito == true">
+                              <ion-icon (click)= "presentAlertConfirm(book)" name= "heart"></ion-icon>
+                            </div>
+                          </ion-col>
+                        </ion-row>
                         <img src="{{book.imagen}}"/>
                       </ion-col>
                     </ion-row>
                       <ion-row>
                         <ion-col>
-                          <div *ngIf= "book.favorito==true">
+                          <div *ngIf= "book.trivia==true">
                             <ion-button (click)= "quiz(book.titulo)" size="small" expand="block"  color="success">Quiz</ion-button>
                           </div>
-                          <div *ngIf= "book.favorito==false">
+                          <div *ngIf= "book.trivia==false">
                             <ion-button size="small" expand="block"  color="medium">Quiz</ion-button>
                           </div>
                         </ion-col>
