@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title style="text-align: center;">Favorites</ion-title>
+    <ion-title style="text-align: center;">Favoritos</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -20,7 +20,9 @@
             <ion-card-content style="align-content: center;">
               <ion-row>
                 <ion-col>
-                  <ion-icon routerLink="/notes" class="icon icon-large"  name="create" ></ion-icon>
+                  
+                  <ion-icon class="icon icon-large"  name="create" (click)="name(book.titulo)"></ion-icon>
+ 
                 </ion-col>
                 <ion-col>
                 </ion-col>

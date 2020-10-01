@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AllbooksPage } from './allbooks/allbooks.page';
+import { author } from '../models/author.model';
+import { TestService } from '../Services/test.service';
 
 @Component({
   selector: 'app-books',
@@ -7,11 +9,18 @@ import { AllbooksPage } from './allbooks/allbooks.page';
   styleUrls: ['./books.page.scss'],
 })
 export class BooksPage implements OnInit {
-
+count:number;
 books: number;
+authors:author[] = [];
 
-  constructor() { 
-   this.books =1;
+
+  constructor(private testService: TestService) { 
+    this.count=0;
+    this.authors = this.testService.getAllAuthors();
+    for(let i=0 ; i < this.authors.length ; i++ ){        
+      this.count+= this.authors[i].books.length;
+    }
+    this.books = this.count;
   }
 
   ngOnInit() {

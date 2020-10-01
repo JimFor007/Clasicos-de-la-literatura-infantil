@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-notes',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesPage implements OnInit {
 
-  constructor() { }
+  libro:string;
+
+
+  constructor(private router: ActivatedRoute) { 
+
+  }
 
   ngOnInit() {
+    this.router.paramMap.subscribe(params=>{
+      this.libro= params.get('book')     
+  });
   }
 
 }
