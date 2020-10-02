@@ -17,7 +17,7 @@ export class TestService {
     books:[{
       titulo: "Los tres cerditos",
       imagen: "../../../assets/images/Cerditos.jpg",
-      trivia: true,
+      trivia: false,
       favorito: true,
       quizes: [{
         question: "Cómo te llamas",
@@ -36,7 +36,7 @@ export class TestService {
     },{
       titulo: "Giannettino",
       imagen: "../../../assets/images/Giannettino.jpg",
-      trivia: true,
+      trivia: false,
       favorito: true,
       quizes: [{
         question: "Cómo te llamas",
@@ -52,7 +52,7 @@ export class TestService {
     books:[{
       titulo: "Mafalda",
       imagen: "https://static.megustaleer.com/images/libros_650_x/EH408815.jpg",
-      trivia: true,
+      trivia: false,
       favorito: false,
       quizes: [{
         question: "Cómo te llamas",

@@ -21,11 +21,6 @@ export class AuthorbooksPage implements OnInit {
       this.name= params.get('author')     
   });
   }
-
-  quiz(book: string){
-    this.router.navigate(["/quiz"]);
-    console.log(book)
-  }
   async presentAlertConfirm(book: book) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -42,5 +37,9 @@ export class AuthorbooksPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  quiz(book: string){
+    this.router.navigate(["/quiz",book]);
   }
 }
