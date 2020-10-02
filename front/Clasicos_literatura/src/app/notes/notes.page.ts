@@ -17,7 +17,8 @@ export class NotesPage implements OnInit {
 
   ngOnInit() {
     this.router.paramMap.subscribe(params=>{
-      this.libro= params.get('book')     
+      this.libro= params.get('book')
+
   });
   }
 

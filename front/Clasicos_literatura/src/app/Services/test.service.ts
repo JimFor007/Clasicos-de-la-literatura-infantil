@@ -138,7 +138,14 @@ export class TestService {
     return this.authors;
   }
 
-  findQuiz(title: string){
-    
+  findBook(title: string){
+    this.authors.forEach(author => {
+      let books = author.books;
+      for (let index = 0; index < books.length; index++) {
+        if (books[index].titulo==title) {
+          return books[index];
+        }
+     }
+    });
   }
 }

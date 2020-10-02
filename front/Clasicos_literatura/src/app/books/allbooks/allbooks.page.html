@@ -27,10 +27,10 @@
             <ion-grid>
               <ion-row>
                 <ion-col>
-                  <div *ngIf= "book.trivia==true">
-                    <ion-button (click)= "quiz(book)" expand="block" color="success">Quiz</ion-button>
+                  <div *ngIf= "book.favorito==true">
+                    <ion-button (click)= "quiz(book.titulo)" expand="block" color="success">Quiz</ion-button>
                   </div>
-                  <div *ngIf= "book.trivia==false">
+                  <div *ngIf= "book.favorito==false">
                     <ion-button expand="block" color="medium">Quiz</ion-button>
                   </div>
                 </ion-col>

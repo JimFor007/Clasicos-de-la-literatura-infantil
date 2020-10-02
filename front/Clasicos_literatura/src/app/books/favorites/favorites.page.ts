@@ -17,9 +17,10 @@ export class FavoritesPage implements OnInit {
   ngOnInit() {
     this.authors = this.testService.getAllAuthors();
   }
-
+  
   name(book: string){
     this.router.navigate(["/notes", book]);
+    console.log(book)
 }
 
 

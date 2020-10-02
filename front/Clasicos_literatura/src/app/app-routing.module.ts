@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./books/favorites/favorites.module').then( m => m.FavoritesPageModule)
   },
   {
-    path: 'quiz',
+    path: 'quiz/:book',
     loadChildren: () => import('./books/quiz/quiz.module').then( m => m.QuizPageModule)
   },
   {

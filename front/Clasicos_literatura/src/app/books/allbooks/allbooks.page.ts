@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TestService } from '../../Services/test.service';
 import { author } from 'src/app/models/author.model';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { book } from 'src/app/models/libro.model';
 import { AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
@@ -16,7 +16,7 @@ export class AllbooksPage implements OnInit {
   authors:author[] = [];
   favorite:string="heart-outline";
   favoriteB:boolean=false;
-  constructor(private testService: TestService, private router: Router, public alertController: AlertController,private storage: Storage) { 
+  constructor(private testService: TestService, private router: Router, public alertController: AlertController) { 
   }
 
   ngOnInit() {
@@ -42,10 +42,8 @@ export class AllbooksPage implements OnInit {
     await alert.present();
   }
 
-  quiz(book: book){
-    this.storage.remove('book');
-    this.storage.set('book',book)
-    this.router.navigate(["/quiz"]);
+  quiz(book: string){
+    this.router.navigate(["/quiz",book]);
   }
 
 }

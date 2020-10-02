@@ -15,30 +15,18 @@ import { promise } from 'protractor';
 export class QuizPage implements OnInit {
 
   authors:author[] = [];
-  book: book;
-
+  libro: string;
+  book1:book ;
   
   constructor(private testService: TestService, private router: ActivatedRoute, private storage: Storage) { 
     this.authors = this.testService.getAllAuthors();
   }
 
-  
   ngOnInit() {
-    this.getBook();
-  }
-
-  async start():Promise<void>{
-    await this.storage.get('book').then((val:any)=>{
-      if(val) return;
-      this.book=val;
-      return;
-    }).catch((errorGet:any)=>{
-      console.log(errorGet);
-      return;
+    this.router.paramMap.subscribe(params=>{
+      this.libro= params.get('book')
     });
+    
   }
 
-  async getBook(){
-    await this.start();
-  }
 }
