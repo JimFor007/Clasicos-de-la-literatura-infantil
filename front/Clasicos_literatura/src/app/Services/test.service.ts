@@ -17,21 +17,21 @@ export class TestService {
     books:[{
       titulo: "Los tres cerditos",
       imagen: "../../../assets/images/Cerditos.jpg",
-      trivia: false,
+      trivia: true,
       favorito: true,
       quizes: [{
         question: "Cómo te llamas",
-        option1: "1",
-        option2: "2",
-        option3: "3",
-        correctAnswer: 1
+        option1: "Sebastián",
+        option2: "Andres",
+        option3: "Jimmy",
+        correctAnswer: "Sebastián"
       },
     {
       question: "Cuántos años tienes",
-        option1: "1",
-        option2: "2",
-        option3: "3",
-        correctAnswer: 1
+        option1: "12",
+        option2: "20",
+        option3: "33",
+        correctAnswer: "20"
     }]
     },{
       titulo: "Giannettino",
@@ -43,7 +43,7 @@ export class TestService {
         option1: "1",
         option2: "2",
         option3: "3",
-        correctAnswer: 1
+        correctAnswer: "1"
       }]
     }]
   },{
@@ -59,7 +59,7 @@ export class TestService {
         option1: "1",
         option2: "2",
         option3: "3",
-        correctAnswer: 1
+        correctAnswer: "2"
       }]
     },{
       titulo: "Gente en su sitio",
@@ -71,7 +71,7 @@ export class TestService {
         option1: "1",
         option2: "2",
         option3: "3",
-        correctAnswer: 1
+        correctAnswer: "3"
       }]
     }]
   },{
@@ -87,7 +87,7 @@ export class TestService {
         option1: "1",
         option2: "2",
         option3: "3",
-        correctAnswer: 1
+        correctAnswer: "2"
       }]
     },{
       titulo: "El gato con botas",
@@ -99,7 +99,7 @@ export class TestService {
         option1: "1",
         option2: "2",
         option3: "3",
-        correctAnswer: 1
+        correctAnswer: "3"
       }]
     }]
   },{
@@ -111,11 +111,11 @@ export class TestService {
       trivia: true,
       favorito: true,
       quizes: [{
-        question: "Cómo te llamas",
-        option1: "1",
-        option2: "2",
-        option3: "3",
-        correctAnswer: 1
+        question: "Quién fue",
+        option1: "yo",
+        option2: "tú",
+        option3: "él",
+        correctAnswer: "él"
       }]
     },{
       titulo: "Veinte lenguas de viaje submarino",
@@ -123,11 +123,11 @@ export class TestService {
       trivia: true,
       favorito: true,
       quizes: [{
-        question: "Cómo te llamas",
-        option1: "1",
-        option2: "2",
-        option3: "3",
-        correctAnswer: 1
+        question: "Cuándo fue?",
+        option1: "Ayer",
+        option2: "Hoy",
+        option3: "Mañana",
+        correctAnswer: "Mañana"
       }]
     }]
   }
@@ -138,6 +138,13 @@ export class TestService {
     return this.authors;
   }
 
+  findAuthor(name: string){
+    this.authors.forEach(author=>{
+      if(author.name==name){
+        return "hola";
+      }
+    })
+  }
   findBook(title: string){
     this.authors.forEach(author => {
       let books = author.books;

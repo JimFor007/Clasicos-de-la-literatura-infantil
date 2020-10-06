@@ -4,16 +4,16 @@
 <ion-card-content>
   <ion-radio-group [(ngModel)] ="choosed">
     <ion-item>
-      <ion-label>{{alphas[0]}}</ion-label>
-      <ion-radio  value="choosed1"></ion-radio>
+      <ion-label>{{map.get(tetha)[0]}}</ion-label>
+      <ion-radio  value="{{map.get(tetha)[0]}}"></ion-radio>
     </ion-item>
     <ion-item>
-      <ion-label>{{alphas[1]}}</ion-label>
-      <ion-radio  value="choosed2"></ion-radio>
+      <ion-label>{{map.get(tetha)[1]}}</ion-label>
+      <ion-radio  value="{{map.get(tetha)[1]}}"></ion-radio>
     </ion-item>
     <ion-item>
-      <ion-label>Answer 3</ion-label>
-      <ion-radio value="choosed3"></ion-radio>
+      <ion-label>{{map.get(tetha)[2]}}</ion-label>
+      <ion-radio value="{{map.get(tetha)[2]}}"></ion-radio>
     </ion-item>
   </ion-radio-group>
   <ion-grid>

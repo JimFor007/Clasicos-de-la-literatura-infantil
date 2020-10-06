@@ -22,11 +22,23 @@ export class QuizPage implements OnInit {
     this.authors = this.testService.getAllAuthors();
   }
 
+  findBook(title: string){
+    this.authors.forEach(author => {
+      let books = author.books;
+      for (let index = 0; index < books.length; index++) {
+        if (books[index].titulo==title) {
+          this.book1=books[index]
+          return books[index];
+        }
+     }
+    });
+  }
+
   ngOnInit() {
     this.router.paramMap.subscribe(params=>{
       this.libro= params.get('book')
     });
-    
+    this.findBook(this.libro)
   }
 
 }

@@ -3,5 +3,5 @@ export class quiz {
     option1: string;
     option2: string;
     option3: string;
-    correctAnswer: number;
+    correctAnswer: string;
 }
