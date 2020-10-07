@@ -32,6 +32,18 @@ export class TestService {
         option2: "20",
         option3: "33",
         correctAnswer: "20"
+    },{
+      question: "Qué haces",
+        option1: "Nada",
+        option2: "Existir",
+        option3: "Morir",
+        correctAnswer: "Nada"
+    },{
+      question: "Aquí el incierto",
+        option1: "Ayer",
+        option2: "y el",
+        option3: "hoy distinto",
+        correctAnswer: "Ayer"
     }]
     },{
       titulo: "Giannettino",
