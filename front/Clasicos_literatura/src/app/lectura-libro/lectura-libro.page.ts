@@ -15,8 +15,14 @@ export class LecturaLibroPage implements OnInit {
   nocMode: boolean=false
   backgroundColor: string = "white";
   textColor: string = "black";
+  sizeText: string[] = ["x-small","medium","x-large"]
+  textSize: string=this.sizeText[0];
 
   ngOnInit() {
+  }
+
+  zoom(){
+    this.textSize=this.sizeText[this.sizeText.indexOf(this.textSize)+1];
   }
 
   backPage(){

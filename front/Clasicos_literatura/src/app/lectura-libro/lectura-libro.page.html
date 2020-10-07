@@ -17,7 +17,7 @@
           <h2 style="text-align: center; margin-bottom: 0%; color: {{textColor}}">{{initalPage}}</h2>
         </ion-text>
           <ion-text>
-            <p style="text-align: left; padding: 5%; font-size: small; color: {{textColor}}">{{initialContent}} </p>
+            <p style="text-align: left; padding: 5%; font-size: {{textSize}}; color: {{textColor}}">{{initialContent}} </p>
           </ion-text>
         </div>
         </ion-col>
@@ -28,7 +28,7 @@
   <ion-toolbar>
     <ion-row>
       <ion-col><ion-icon name="megaphone-outline"></ion-icon></ion-col>
-      <ion-col><ion-icon name="search-outline"></ion-icon></ion-col>
+      <ion-col><ion-icon (click)="zoom()"name="search-outline"></ion-icon></ion-col>
       <ion-col><ion-icon (click)="backPage()" name="chevron-back-outline"></ion-icon></ion-col>
       <ion-col><ion-icon (click)="nextPage()" name="chevron-forward-outline"></ion-icon></ion-col>
       <ion-col>

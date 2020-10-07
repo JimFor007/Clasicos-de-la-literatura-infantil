@@ -16,6 +16,7 @@ export class AllbooksPage implements OnInit {
   authors:author[] = [];
   favorite:string="heart-outline";
   favoriteB:boolean=false;
+  textoBuscar=''
   constructor(private testService: TestService, private router: Router, public alertController: AlertController) { 
   }
 
@@ -23,7 +24,9 @@ export class AllbooksPage implements OnInit {
     this.authors = this.testService.getAllAuthors();
   }
 
-  
+  search(event){
+    this.textoBuscar=event.detail.value
+  }
   async presentAlertConfirm(book: book) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',

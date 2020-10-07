@@ -11,11 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import {IonicStorageModule} from '@ionic/storage';
 import { LecturaPipe } from './lectura.pipe'
-
+import {PipesModule} from './pipes/pipes.module'
 @NgModule({
   declarations: [AppComponent, LecturaPipe],
   entryComponents: [],
-  imports: [BrowserModule,IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, CommonModule],
+  imports: [BrowserModule,IonicStorageModule.forRoot(), IonicModule.forRoot(), AppRoutingModule, CommonModule, PipesModule],
   providers: [
     StatusBar,
     SplashScreen,
