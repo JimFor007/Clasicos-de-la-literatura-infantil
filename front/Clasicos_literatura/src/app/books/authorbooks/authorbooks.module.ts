@@ -8,12 +8,15 @@ import { AuthorbooksPageRoutingModule } from './authorbooks-routing.module';
 
 import { AuthorbooksPage } from './authorbooks.page';
 
+import { PipesModule } from 'src/app/pipes/pipes.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AuthorbooksPageRoutingModule
+    AuthorbooksPageRoutingModule,
+    PipesModule
   ],
   declarations: [AuthorbooksPage]
 })

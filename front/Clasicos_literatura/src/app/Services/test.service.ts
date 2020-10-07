@@ -119,7 +119,7 @@ export class TestService {
     image:"https://upload.wikimedia.org/wikipedia/commons/d/d1/F%C3%A9lix_Nadar_1820-1910_portraits_Jules_Verne_%28restoration%29.jpg",
     books:[{
       titulo: "Vuelta al mundo en ochenta dias",
-      imagen: "../../../assets/images/VeinteLeguasDeViajeSubmarino.jpg",
+      imagen: "../../../assets/images/VueltaAlMundoEnOchentaDias.jpg",
       trivia: true,
       favorito: true,
       quizes: [{
@@ -131,7 +131,7 @@ export class TestService {
       }]
     },{
       titulo: "Veinte lenguas de viaje submarino",
-      imagen: "../../../assets/images/VueltaAlMundoEnOchentaDias.jpg",
+      imagen: "../../../assets/images/VeinteLeguasDeViajeSubmarino.jpg",
       trivia: true,
       favorito: true,
       quizes: [{
