@@ -21,7 +21,14 @@ export class AllbooksPage implements OnInit {
   }
 
   ngOnInit() {
-    this.authors = this.testService.getAllAuthors();
+
+    this.testService.getTodos().subscribe(
+      data=>{
+        this.authors= data;
+        console.log('todos los libros', this.authors);
+      }
+    )
+   // this.authors = this.testService.getAllAuthors();
   }
 
   search(event){

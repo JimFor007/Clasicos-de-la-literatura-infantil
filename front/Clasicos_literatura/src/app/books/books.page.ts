@@ -13,14 +13,23 @@ count:number;
 books: number;
 authors:author[] = [];
 
+allbooks:[];
+
 
   constructor(private testService: TestService) { 
     this.count=0;
-    this.authors = this.testService.getAllAuthors();
-    for(let i=0 ; i < this.authors.length ; i++ ){        
-      this.count+= this.authors[i].books.length;
-    }
-    this.books = this.count;
+    this.testService.getTodos().subscribe(
+      data=>{
+        this.authors=data;
+
+        for(let i=0 ; i < this.authors.length ; i++ ){        
+          this.count+= this.authors[i].books.length;
+        }
+        this.books = this.count;
+      }
+    );
+
+    //this.authors = this.testService.getAllAuthors();
   }
 
   ngOnInit() {

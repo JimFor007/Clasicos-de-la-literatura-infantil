@@ -14,11 +14,16 @@ export class AutoresPage implements OnInit {
   constructor(private testService: TestService, private router: Router) { }
 
   ngOnInit() {
-    this.authors=this.testService.getAllAuthors();
+    this.testService.getTodos().subscribe(
+      data=>{
+        this.authors = data;
+          console.log(data);
+      }
+    );
   }
 
-  biography(author: string){
-    this.router.navigate(["/biography", author]);
+  biography(id: string){
+    this.router.navigate(["/biography", id]);
 }
 
 

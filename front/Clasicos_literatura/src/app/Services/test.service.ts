@@ -144,12 +144,15 @@ export class TestService {
   }
   ]
 
+
+  
+
   private todosCollection: AngularFirestoreCollection<author>;
   private todos: Observable<author[]>;
 
   constructor(db: AngularFirestore) { 
 
-    this.todosCollection = db.collection<author>('autores');
+    this.todosCollection = db.collection<author>('authors');
     this.todos=this.todosCollection.snapshotChanges().pipe(map(
       actions=>{
         return actions.map(a=>{
@@ -161,13 +164,13 @@ export class TestService {
     ));
   }
 
+// retorna toda la coleccion
   getTodos(){
     return this.todos;
   }
-
-  getTodo(nombre:string){
-    return this.todosCollection.doc<author>(nombre).valueChanges();
-
+// retorna autor por id
+  getAuthor(id:string){
+    return this.todosCollection.doc<author>(id).valueChanges();
   }
 
   getAllAuthors(){

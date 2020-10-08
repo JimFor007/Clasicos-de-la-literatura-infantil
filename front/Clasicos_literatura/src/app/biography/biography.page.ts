@@ -19,7 +19,11 @@ export class BiographyPage implements OnInit {
 
   ngOnInit() {
     this.router.paramMap.subscribe(params=>{
-      this.name= params.get('author')     
+      this.service.getAuthor(params.get('id')).subscribe(
+        data=>{
+          this.name=data.name;
+        }
+      );
   });
   }
 
