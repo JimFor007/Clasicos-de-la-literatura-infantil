@@ -2,15 +2,14 @@ import { Injectable } from '@angular/core';
 import { book } from '../models/libro.model';
 import {author} from '../models/author.model';
 import { quiz } from '../models/quiz.model';
-
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import {map} from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestService {
-
-  
-
   authors: author[]=[{
     name:"Carlo collodi",
     image:"https://www.elsiglodetorreon.com.mx/m/i/2017/10/992228.jpeg",
@@ -144,7 +143,32 @@ export class TestService {
     }]
   }
   ]
-  constructor() { }
+
+  private todosCollection: AngularFirestoreCollection<author>;
+  private todos: Observable<author[]>;
+
+  constructor(db: AngularFirestore) { 
+
+    this.todosCollection = db.collection<author>('autores');
+    this.todos=this.todosCollection.snapshotChanges().pipe(map(
+      actions=>{
+        return actions.map(a=>{
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return {id, ...data};
+        });
+      }
+    ));
+  }
+
+  getTodos(){
+    return this.todos;
+  }
+
+  getTodo(nombre:string){
+    return this.todosCollection.doc<author>(nombre).valueChanges();
+
+  }
 
   getAllAuthors(){
     return this.authors;
@@ -167,4 +191,6 @@ export class TestService {
      }
     });
   }
+
+  
 }

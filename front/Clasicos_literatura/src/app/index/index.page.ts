@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { TestService } from '../Services/test.service';
+import { author } from '../models/author.model';
+import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore'
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators'
 
 @Component({
   selector: 'app-index',
@@ -7,9 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexPage implements OnInit {
 
-  constructor() { }
+
+
+  constructor() { 
+
+  }
 
   ngOnInit() {
+
   }
+
 
 }
