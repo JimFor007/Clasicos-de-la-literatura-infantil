@@ -13,6 +13,7 @@ export class AuthorbooksPage implements OnInit {
 
   authors:author[] = [];
   name :string;
+  textoBuscar=''
   constructor(private testService: TestService, private router: Router,private router2: ActivatedRoute, public alertController: AlertController) { }
 
   ngOnInit() {
@@ -38,6 +39,12 @@ export class AuthorbooksPage implements OnInit {
 
     await alert.present();
   }
+
+  search(event){
+    console.log(event.detail.value)
+    this.textoBuscar=event.detail.value
+  }
+
 
   quiz(book: string){
     this.router.navigate(["/quiz",book]);

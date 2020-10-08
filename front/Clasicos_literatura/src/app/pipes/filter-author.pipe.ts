@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filter'
+  name: 'filterAuthor'
 })
-export class FilterPipe implements PipeTransform {
+export class FilterAuthorPipe implements PipeTransform {
 
   transform(array: any[], text: string): any[] {
     console.log(array)
@@ -15,7 +15,7 @@ export class FilterPipe implements PipeTransform {
     text=text.toLowerCase();
     
     return array.filter(item=>{
-        return item.titulo.toLowerCase().includes(text)
+        return item.name.toLowerCase().includes(text)
     });
     
   }

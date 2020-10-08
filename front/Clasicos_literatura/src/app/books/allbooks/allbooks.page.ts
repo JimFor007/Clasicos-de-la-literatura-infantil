@@ -25,6 +25,7 @@ export class AllbooksPage implements OnInit {
   }
 
   search(event){
+    console.log(event.detail.value)
     this.textoBuscar=event.detail.value
   }
   async presentAlertConfirm(book: book) {
