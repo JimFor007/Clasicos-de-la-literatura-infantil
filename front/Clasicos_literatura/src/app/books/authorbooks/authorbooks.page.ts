@@ -17,7 +17,11 @@ export class AuthorbooksPage implements OnInit {
   constructor(private testService: TestService, private router: Router,private router2: ActivatedRoute, public alertController: AlertController) { }
 
   ngOnInit() {
-    this.authors=this.testService.getAllAuthors();
+    this.testService.getTodos().subscribe(
+      data=>{
+        this.authors= data;
+      }
+    )
     this.router2.paramMap.subscribe(params=>{
       this.name= params.get('author')     
   });

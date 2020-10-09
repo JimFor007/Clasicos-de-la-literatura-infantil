@@ -25,16 +25,14 @@ export class AllbooksPage implements OnInit {
     this.testService.getTodos().subscribe(
       data=>{
         this.authors= data;
-        console.log('todos los libros', this.authors);
       }
     )
-   // this.authors = this.testService.getAllAuthors();
   }
 
   search(event){
-    console.log(event.detail.value)
     this.textoBuscar=event.detail.value
   }
+
   async presentAlertConfirm(book: book) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',

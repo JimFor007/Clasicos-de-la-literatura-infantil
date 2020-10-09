@@ -172,28 +172,11 @@ export class TestService {
   getAuthor(id:string){
     return this.todosCollection.doc<author>(id).valueChanges();
   }
+  
+  updateFavoriteBook(){}
 
   getAllAuthors(){
     return this.authors;
   }
 
-  findAuthor(name: string){
-    this.authors.forEach(author=>{
-      if(author.name==name){
-        return "hola";
-      }
-    })
-  }
-  findBook(title: string){
-    this.authors.forEach(author => {
-      let books = author.books;
-      for (let index = 0; index < books.length; index++) {
-        if (books[index].titulo==title) {
-          return books[index];
-        }
-     }
-    });
-  }
-
-  
 }
