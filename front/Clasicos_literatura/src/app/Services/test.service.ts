@@ -216,10 +216,13 @@ export class TestService {
   getAuthor(id:string){
     return this.todosCollection.doc<author>(id).valueChanges();
   }
+  
+  updateFavoriteBook(){}
 
   getAllAuthors(){
     return this.authors;
   }
+
 
   
   findBook(title: string){
@@ -233,5 +236,5 @@ export class TestService {
     });
   }
 
-  
+
 }
