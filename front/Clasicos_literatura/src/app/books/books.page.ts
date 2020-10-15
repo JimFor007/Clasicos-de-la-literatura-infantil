@@ -18,7 +18,7 @@ allbooks:[];
 
   constructor(private testService: TestService) { 
     this.count=0;
-    this.testService.getTodos().subscribe(
+    this.testService.getTodos()/*.subscribe(
       data=>{
         this.authors=data;
 
@@ -28,7 +28,7 @@ allbooks:[];
         this.books = this.count;
       }
     );
-
+      */
     //this.authors = this.testService.getAllAuthors();
   }
 

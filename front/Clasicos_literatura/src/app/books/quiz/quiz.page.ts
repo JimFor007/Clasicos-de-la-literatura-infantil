@@ -18,7 +18,7 @@ export class QuizPage implements OnInit {
   libro: string;
   book1:book ;
   
-  constructor(private testService: TestService, private router: ActivatedRoute, private storage: Storage) { 
+  constructor(private testService: TestService, private router: ActivatedRoute) { 
     this.authors = this.testService.getAllAuthors();
   }
 

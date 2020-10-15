@@ -14,12 +14,13 @@ export class AutoresPage implements OnInit {
   constructor(private testService: TestService, private router: Router) { }
 
   ngOnInit() {
-    this.testService.getTodos().subscribe(
+    this.testService.getTodos()/*.subscribe(
       data=>{
         this.authors = data;
           console.log(data);
       }
     );
+    */
   }
 
   biography(id: string){

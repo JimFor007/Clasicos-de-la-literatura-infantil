@@ -64,7 +64,7 @@ export class QuestionsComponent implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Finalizado',
-      message: 'Su puntaje es: '+score,
+      message: 'Su puntaje es: '+score+"/"+this.respuestas.length,
       buttons: [
          {
           text: 'Okay',

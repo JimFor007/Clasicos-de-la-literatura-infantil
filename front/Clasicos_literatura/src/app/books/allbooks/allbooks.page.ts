@@ -22,15 +22,14 @@ export class AllbooksPage implements OnInit {
 
   ngOnInit() {
 
-    this.testService.getTodos().subscribe(
+    /*this.testService.getTodos().subscribe(
       data=>{
         this.authors= data;
         console.log('todos los libros', this.authors);
       }
-    )
-   // this.authors = this.testService.getAllAuthors();
+    )*/
+   this.authors = this.testService.getAllAuthors();
   }
-
   search(event){
     console.log(event.detail.value)
     this.textoBuscar=event.detail.value
@@ -55,6 +54,9 @@ export class AllbooksPage implements OnInit {
 
   quiz(book: string){
     this.router.navigate(["/quiz",book]);
+  }
+  read(book: string){
+    this.router.navigate(["/lecturalibro",book]);
   }
 
 }

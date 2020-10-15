@@ -1,6 +1,9 @@
 <ion-header style="position: unset;" no-border>
   <ion-toolbar>
     <ion-title style="text-align: center;">Todos los libros</ion-title>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 
   <ion-grid fixed style="background-color: white;">
@@ -24,7 +27,7 @@
               <ion-icon (click)= "presentAlertConfirm(book)" name= "heart"></ion-icon>
             </div>
           </ion-card-header>
-          <img routerLink="/lectura-libro" src="{{ book.imagen }}" />
+          <img (click)=read(book.titulo) src="{{ book.imagen }}" />
           <ion-card-content style="align-content: center;">
             <ion-grid>
               <ion-row>
