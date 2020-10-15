@@ -49,6 +49,9 @@ export class AuthorbooksPage implements OnInit {
     this.textoBuscar=event.detail.value
   }
 
+  read(book: string){
+    this.router.navigate(["/lecturalibro",book]);
+  }
 
   quiz(book: string){
     this.router.navigate(["/quiz",book]);

@@ -15,6 +15,7 @@ export class NotesPage implements OnInit {
   authors:author[] = [];
   book1:book ;
   apunte:string;
+  text:string;
 
   constructor(private router: ActivatedRoute, private testService: TestService) { 
     this.authors = this.testService.getAllAuthors();
@@ -30,6 +31,10 @@ export class NotesPage implements OnInit {
         }
      }
     });
+  }
+
+  guardar(text:string){
+    this.book1.apunte=text
   }
 
   ngOnInit() {

@@ -1,18 +1,18 @@
 <ion-card-header>
   <ion-card-header>{{tetha}}</ion-card-header>
 </ion-card-header>
-<ion-card-content>
+<div>
   <ion-radio-group [(ngModel)] ="choosed">
     <ion-item>
-      <ion-label>{{map.get(tetha)[0]}}</ion-label>
+      <ion-label class="ion-text-wrap">{{map.get(tetha)[0]}}</ion-label>
       <ion-radio  value="{{map.get(tetha)[0]}}"></ion-radio>
     </ion-item>
     <ion-item>
-      <ion-label>{{map.get(tetha)[1]}}</ion-label>
+      <ion-label class="ion-text-wrap">{{map.get(tetha)[1]}}</ion-label>
       <ion-radio  value="{{map.get(tetha)[1]}}"></ion-radio>
     </ion-item>
     <ion-item>
-      <ion-label>{{map.get(tetha)[2]}}</ion-label>
+      <ion-label class="ion-text-wrap">{{map.get(tetha)[2]}}</ion-label>
       <ion-radio value="{{map.get(tetha)[2]}}"></ion-radio>
     </ion-item>
   </ion-radio-group>
@@ -25,7 +25,7 @@
       <ion-col></ion-col>
     </ion-row>
   </ion-grid>
-</ion-card-content>
+</div>
 <ion-footer>
   <ion-progress-bar color="secondary" value="{{answers.length/respuestas.length}}"></ion-progress-bar>
 </ion-footer>

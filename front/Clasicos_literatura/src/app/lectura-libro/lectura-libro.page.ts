@@ -3,6 +3,8 @@ import { author } from '../models/author.model';
 import { TestService } from '../Services/test.service';
 import { book } from '../models/libro.model';
 import { ActivatedRoute } from '@angular/router';
+import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { TtsService } from '../Services/tts.service';
 
 @Component({
   selector: 'app-lectura-libro',
@@ -24,7 +26,7 @@ export class LecturaLibroPage implements OnInit {
   textSize: string=this.sizeText[0];
 
 
-  constructor(private testService: TestService, private router: ActivatedRoute) {
+  constructor(private testService: TestService, private router: ActivatedRoute, private _stts: TtsService) {
     this.authors=this.testService.authors;
    }
 
@@ -40,6 +42,12 @@ export class LecturaLibroPage implements OnInit {
     });
   }
   
+  speech(){
+    for (let i = 0; i < this.bookContent.length; i++) {
+      this._stts.discurso(this.initalPage[i]);
+      this._stts.discurso(this.bookContent[i]);
+    }
+  }
 
   readBook(){
     for (let i = 0; i < this.book1.capitulos.length; i++) {
