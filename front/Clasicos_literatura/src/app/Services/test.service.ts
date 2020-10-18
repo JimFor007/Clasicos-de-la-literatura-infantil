@@ -51,7 +51,7 @@ export class TestService {
       question: "¿De qué material estaba hecha la casa del segundo cerdito?",
         option1: "Madera",
         option2: "Vidrio",
-        option3: "Es",
+        option3: "Es un holograma",
         correctAnswer: "Madera"
     }],
     apunte:"hola"
