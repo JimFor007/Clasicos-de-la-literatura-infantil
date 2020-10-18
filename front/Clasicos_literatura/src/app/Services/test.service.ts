@@ -210,7 +210,7 @@ export class TestService {
 // retorna toda la coleccion
   getTodos(){
     console.log(this.todos)
-    return this.todosCollection.valueChanges();
+    return this.todos;
   }
 // retorna autor por id
   getAuthor(id:string){

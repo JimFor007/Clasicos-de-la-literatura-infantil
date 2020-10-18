@@ -26,7 +26,7 @@ import {TextToSpeech} from '@ionic-native/text-to-speech/ngx'
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     AppRoutingModule,
     CommonModule,
     PipesModule
