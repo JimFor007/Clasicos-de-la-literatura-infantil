@@ -14,6 +14,7 @@ export class TestService {
     name:"Carlo collodi",
     image:"https://www.elsiglodetorreon.com.mx/m/i/2017/10/992228.jpeg",
     biography: "Carlo Collodi nació el 24 de noviembre de 1826 en Florencia, Italia Fue uno de los diez hijos del cocinero Domenico Lorenzini y de María Angela Carolina Orzali, empleada doméstica que trabajó en el servicio del Marqués Ginori, junto con su marido. Pudo estudiar gracias a la ayuda de la familia Ginori. Desde 1837 hasta 1842 permaneció en el seminario en Colle di Val d'Elsa. Entre 1842 y 1844, cursó estudios de Retórica y Filosofía en Florencia, en una escuela religiosa de los Escolapios. Trabajó en la Biblioteca Piatti de Florencia hasta 1848 en que se une al ejército del rey Carlos de Cerdeña en el levantamiento contra Austria. Influido por los ideales políticos de Giuseppe Mazzini, Collodi plasmó en sus obras la doctrina liberal de este gran líder de la Italia Unificada. Creó el periódico satírico Il Lampione, prohibido en 1849. En 1853 fundó La Scaramuccia, para el que escribió hasta 1859. Se unió a las fuerzas militares de Giuseppe Garibaldi y relanzó Il Lampione, ya bajo el seudónimo de Collodi (por el lugar donde nació su madre). En 1860 trabajó como funcionario en Florencia.En 1877 inició las series de cuentos educativos sobre Gianettino (Juanito), el último apareció en 1890. Pinocho, apareció en julio de 1881 en el semanario para niños Giornale per i Bambini, con el título de Storia di un Burattino (Historia de un muñeco). En 1883 se editaron Las aventuras de Pinocho. Se dice que Carlo Collodi ingresó a la Masonería a mediados del siglo XIX, aunque no hay ningún documento que lo sostenga, y que esta organización tuvo influencia importante en su obra más notable (Pinocho), en la que se supone que se encuentran interesantes simbolismos. La popularidad Pinocho experimentó un gran auge en 1940 con el estreno de la película animada de Walt Disney. Carlo Collodi falleció en Florencia el 26 de octubre de 1890 ",
+    birthDate: "24 de noviembre de 1826",
     books:[{
       titulo: "Los tres cerditos",
       capitulos:[{
@@ -78,6 +79,7 @@ export class TestService {
     name:"Joaquín Salvador Lavado Tejón",
     image:"https://1.bp.blogspot.com/_e5rLQEpqOEM/SA1wLp0DhXI/AAAAAAAAF84/viUV7UEbAy0/s320/SalvadorLavado.jpg",
     biography: "unavailable",
+    birthDate: "24 de noviembre de 1826",
     books:[{
       titulo: "Mafalda",
       capitulos:[{
@@ -117,6 +119,7 @@ export class TestService {
     name:"Charles Perraulti",
     image:"https://upload.wikimedia.org/wikipedia/commons/d/d4/ChPerrault.jpg",
     biography: "unavailable",
+    birthDate: "24 de noviembre de 1826",
     books:[{
       titulo: "Caperucita roja",
       capitulos:[{
@@ -156,6 +159,7 @@ export class TestService {
     name:"Julio verne",
     image:"https://upload.wikimedia.org/wikipedia/commons/d/d1/F%C3%A9lix_Nadar_1820-1910_portraits_Jules_Verne_%28restoration%29.jpg",
     biography: "unavailable",
+    birthDate: "24 de noviembre de 1826",
     books:[{
       titulo: "Vuelta al mundo en ochenta dias",
       capitulos:[{

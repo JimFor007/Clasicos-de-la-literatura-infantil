@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterAuthorPipe implements PipeTransform {
 
   transform(array: any[], text: string): any[] {
-    console.log(array)
+    
     
     if(text == ''){
       return array;

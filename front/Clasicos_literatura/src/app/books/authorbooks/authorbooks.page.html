@@ -23,7 +23,7 @@
                 <ion-img src="{{author.image}}">
                 </ion-img>
               </ion-avatar>
-              <ion-button size="small" fill="outline" slot="end">Biografía</ion-button>
+              <ion-button (click)= "biography(author.id)" size="small" fill="outline" slot="end">Biografía</ion-button>
             </ion-item>
           </ion-card-header>
           <ion-card-content>

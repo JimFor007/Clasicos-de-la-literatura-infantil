@@ -6,18 +6,19 @@
     <ion-title>Autores</ion-title>
   </ion-toolbar>
   <ion-grid fixed style="background-color: white;">
-    <ion-searchbar style="background-color: white;"></ion-searchbar>
+    <ion-searchbar animated
+    (ionChange)="search($event)" style="background-color: white;"></ion-searchbar>
   </ion-grid>
 
 </ion-header>
 <ion-content>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size-lg="12" size-md="4" size-sm="6" size-xs="12" *ngFor= 'let author of authors'>
+      <ion-col size-lg="12" size-md="4" size-sm="6" size-xs="12" *ngFor= 'let author of authors | filterAuthor: textoBuscar'>
         <ion-list>
-          <ion-item routerLink="/biography">
+          <ion-item (click)="biography(author.id)">
             <ion-avatar slot="start">
-              <img src="https://www.elsiglodetorreon.com.mx/m/i/2017/10/992228.jpeg">
+              <img src={{author.image}}>
             </ion-avatar>
             <ion-label>
               <h2>{{author.name}}</h2>

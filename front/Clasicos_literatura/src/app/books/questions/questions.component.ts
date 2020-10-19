@@ -69,7 +69,7 @@ export class QuestionsComponent implements OnInit {
          {
           text: 'Okay',
           handler: () => {
-            this.router.navigate(['/']);
+            this.router.navigate(['/allbooks']);
             this.answers=[];
           }
         }

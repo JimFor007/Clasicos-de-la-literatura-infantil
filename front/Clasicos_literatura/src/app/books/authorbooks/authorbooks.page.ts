@@ -56,4 +56,7 @@ export class AuthorbooksPage implements OnInit {
   quiz(book: string){
     this.router.navigate(["/quiz",book]);
   }
+  biography(id: string){
+    this.router.navigate(["/biography", id]);
+}
 }

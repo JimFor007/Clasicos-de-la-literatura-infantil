@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { AutoresPageRoutingModule } from './autores-routing.module';
-
+import { PipesModule } from 'src/app/pipes/pipes.module';
 import { AutoresPage } from './autores.page';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { AutoresPage } from './autores.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    AutoresPageRoutingModule
+    AutoresPageRoutingModule,
+    PipesModule
   ],
   declarations: [AutoresPage]
 })
