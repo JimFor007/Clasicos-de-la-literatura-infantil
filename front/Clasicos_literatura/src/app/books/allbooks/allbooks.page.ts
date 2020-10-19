@@ -26,9 +26,7 @@ export class AllbooksPage implements OnInit {
       data=>{
         this.authors= data;
       }
-
     )
-
   }
   search(event){
     this.textoBuscar=event.detail.value

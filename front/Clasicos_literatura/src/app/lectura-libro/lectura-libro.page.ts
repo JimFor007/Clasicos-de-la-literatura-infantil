@@ -44,9 +44,12 @@ export class LecturaLibroPage implements OnInit {
   
   speech(){
     for (let i = 0; i < this.bookContent.length; i++) {
-      this._stts.discurso(this.initalPage[i]);
-      this._stts.discurso(this.bookContent[i]);
+      this._stts.discurso(this.initalPage[i]+this.bookContent[i]);
     }
+  }
+
+  stopSpeech(){
+    this._stts.discurso(null);
   }
 
   readBook(){

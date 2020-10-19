@@ -12,7 +12,7 @@ import { TestService } from '../Services/test.service';
 export class BiographyPage implements OnInit {
 
   name :string;
-
+  
   authors:author[] = [];
 
   constructor(private router: ActivatedRoute, private service: TestService) { }
@@ -22,6 +22,7 @@ export class BiographyPage implements OnInit {
       this.service.getAuthor(params.get('id')).subscribe(
         data=>{
           this.name=data.name;
+          console.log(data)
         }
       );
   });

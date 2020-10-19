@@ -13,17 +13,18 @@ export class TestService {
   authors: author[]=[{
     name:"Carlo collodi",
     image:"https://www.elsiglodetorreon.com.mx/m/i/2017/10/992228.jpeg",
+    biography: "Carlo Collodi nació el 24 de noviembre de 1826 en Florencia, Italia Fue uno de los diez hijos del cocinero Domenico Lorenzini y de María Angela Carolina Orzali, empleada doméstica que trabajó en el servicio del Marqués Ginori, junto con su marido. Pudo estudiar gracias a la ayuda de la familia Ginori. Desde 1837 hasta 1842 permaneció en el seminario en Colle di Val d'Elsa. Entre 1842 y 1844, cursó estudios de Retórica y Filosofía en Florencia, en una escuela religiosa de los Escolapios. Trabajó en la Biblioteca Piatti de Florencia hasta 1848 en que se une al ejército del rey Carlos de Cerdeña en el levantamiento contra Austria. Influido por los ideales políticos de Giuseppe Mazzini, Collodi plasmó en sus obras la doctrina liberal de este gran líder de la Italia Unificada. Creó el periódico satírico Il Lampione, prohibido en 1849. En 1853 fundó La Scaramuccia, para el que escribió hasta 1859. Se unió a las fuerzas militares de Giuseppe Garibaldi y relanzó Il Lampione, ya bajo el seudónimo de Collodi (por el lugar donde nació su madre). En 1860 trabajó como funcionario en Florencia.En 1877 inició las series de cuentos educativos sobre Gianettino (Juanito), el último apareció en 1890. Pinocho, apareció en julio de 1881 en el semanario para niños Giornale per i Bambini, con el título de Storia di un Burattino (Historia de un muñeco). En 1883 se editaron Las aventuras de Pinocho. Se dice que Carlo Collodi ingresó a la Masonería a mediados del siglo XIX, aunque no hay ningún documento que lo sostenga, y que esta organización tuvo influencia importante en su obra más notable (Pinocho), en la que se supone que se encuentran interesantes simbolismos. La popularidad Pinocho experimentó un gran auge en 1940 con el estreno de la película animada de Walt Disney. Carlo Collodi falleció en Florencia el 26 de octubre de 1890 ",
     books:[{
       titulo: "Los tres cerditos",
       capitulos:[{
         titulo: "capitulo 1",
-        contenido: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac massa eros. Donec purus diam, interdum id nisl ut, congue vehicula ligula. Ut tincidunt ligula accumsan, sodales risus in, lobortis lorem. Aenean quis mauris at ipsum blandit pharetra. In lacinia, purus scelerisque finibus condimentum, nunc urna posuere ex, in ornare diam mauris varius odio. Nullam et placerat lorem. In pretium pellentesque feugiat. Sed faucibus ac arcu nec sodales. Mauris ut pulvinar augue. Fusce id viverra diam, ac convallis ex."
+        contenido: "En el corazón del bosque vivían tres cerditos que eran hermanos. El lobo siempre andaba persiguiéndolos para comérselos. Para escapar del lobo, los cerditos decidieron hacerse una casa. El pequeño la hizo de paja, para acabar antes y poder irse a jugar. El mediano construyó una casa de madera. Al ver que su hermano pequeño había terminado ya, se dio prisa para irse a jugar con él. El mayor trabajaba en su casa de ladrillo. - Ya veréis lo que hace el lobo con vuestras casasriñó a sus hermanos mientras éstos se lo pasaban en grande"
       },{
         titulo: "capitulo 2",
-        contenido: "Maecenas a pretium ipsum. Etiam eu pellentesque orci. Aliquam erat volutpat. Cras id velit placerat, facilisis metus quis, dapibus enim. Suspendisse eu dui at libero blandit fermentum. Integer convallis libero felis, elementum fringilla nisl viverra quis. Fusce ultrices ultricies ipsum ut euismod. Nulla fermentum diam lobortis mollis mattis. Ut a hendrerit massa, eu malesuada massa. Aliquam cursus pulvinar dignissim. Ut dignissim ligula sed turpis sagittis, id ultricies augue pellentesque. Aliquam non mattis ex. Vivamus dolor tellus, convallis sit amet nisi et, dapibus maximus dolor."
+        contenido: "El lobo salió detrás del cerdito pequeño y él corrió hasta su casa de paja, pero el lobo sopló y sopló y la casa de paja derrumbó. El lobo persiguió al cerdito por el bosque, que corrió a refugiarse en casa de su hermano mediano. Pero el lobo sopló y sopló y la casa de madera derribó.Los dos cerditos salieron corriendo de allí. Casi sin aliento, con el lobo pegado a sus talones,llegaron a la casa del hermano mayor. Los tres se metieron dentro y cerraron bien todas las puertas y ventanas. El lobo se puso a dar vueltas a la casa, buscando algún sitio por el que entrar. Con una escalera larguísima trepó hasta el tejado, para colarse"
       },{
         titulo: "capitulo 3",
-        contenido: "Fusce vitae rhoncus sem. Curabitur fermentum dapibus velit sed congue. Nulla ultricies vehicula dolor, a ornare metus imperdiet vitae. Praesent eu lacus a nibh tincidunt interdum at id purus. Aliquam erat volutpat. Proin et sapien et lacus porta consectetur. Praesent nec elit luctus, molestie sem et, dignissim libero. Cras auctor rhoncus laoreet. Aliquam et sodales metus. Sed pharetra venenatis mollis. Fusce vitae est id leo tristique pharetra. Praesent pellentesque metus sed augue dignissim euismod. Integer magna nunc, lacinia quis tortor eu, volutpat consequat elit."
+        contenido: "por la chimenea. Pero el cerdito mayor puso al fuego una olla con agua. El lobo comilón descendió por el interior de la chimenea, pero cayó sobre el agua hirviendo y se quemó. Escapó de allí dando unos terribles aullidos que se oyeron en todo el bosque. Se cuenta que nunca jamás quiso comer cerditos."
       }],
       imagen: "../../../assets/images/Cerditos.jpg",
       trivia: true,
@@ -76,6 +77,7 @@ export class TestService {
   },{
     name:"Joaquín Salvador Lavado Tejón",
     image:"https://1.bp.blogspot.com/_e5rLQEpqOEM/SA1wLp0DhXI/AAAAAAAAF84/viUV7UEbAy0/s320/SalvadorLavado.jpg",
+    biography: "unavailable",
     books:[{
       titulo: "Mafalda",
       capitulos:[{
@@ -114,6 +116,7 @@ export class TestService {
   },{
     name:"Charles Perraulti",
     image:"https://upload.wikimedia.org/wikipedia/commons/d/d4/ChPerrault.jpg",
+    biography: "unavailable",
     books:[{
       titulo: "Caperucita roja",
       capitulos:[{
@@ -152,6 +155,7 @@ export class TestService {
   },{
     name:"Julio verne",
     image:"https://upload.wikimedia.org/wikipedia/commons/d/d1/F%C3%A9lix_Nadar_1820-1910_portraits_Jules_Verne_%28restoration%29.jpg",
+    biography: "unavailable",
     books:[{
       titulo: "Vuelta al mundo en ochenta dias",
       capitulos:[{
