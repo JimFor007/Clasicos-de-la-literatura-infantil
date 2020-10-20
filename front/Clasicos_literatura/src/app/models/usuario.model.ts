@@ -1,4 +1,4 @@
 export class user  {
-    usuario: string;
+    correo: string;
     contrasena: string;
 }

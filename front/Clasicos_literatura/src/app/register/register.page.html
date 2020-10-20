@@ -1,7 +1,6 @@
 <style>
   .card {
   width: 300px;
-  top: 50px;
   margin-left: 50%;
   transform: translateX(-50%);
   align-items: center;
@@ -12,29 +11,47 @@
 
 
 <ion-content>
+
   <ion-card class="card">
           <ion-card-header>
             <ion-card-title style="text-align: center;">Registrarse</ion-card-title>
-            <hr>
           </ion-card-header>
+        <img src="../../assets/images/registro.jpg" alt="">
 
+      
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <ion-item style="margin-right: 10px; margin-left: 10px;">
-            <ion-label position="stacked">Usuario</ion-label>
-            <ion-input placeholder="Ej. user123" [(ngModel)]="usuario.usuario" name="usuario"></ion-input>
+            <ion-label position="stacked">Correo Electronico</ion-label>
+            <ion-input formControlName="userEmail" required placeholder="Ej. user123@test.com" name="correo" type="email"></ion-input>
           </ion-item>
+        </form>
 
           <br>
 
           <ion-item style="margin-right: 10px; margin-left: 10px;">
             <ion-label position="stacked">Contraseña</ion-label>
-            <ion-input placeholder="Ej. 12345" type="password"[(ngModel)]="usuario.contrasena" name="contrasena"></ion-input>
-          </ion-item>
+            <ion-input required placeholder="Ej. 12345" type="password"[(ngModel)]="usuario.contrasena" name="contrasena"></ion-input>
+          </ion-item>    
         
           <ion-card-content>
       <br>
+      <p>
+        Su usuario debe cumplir con los siguientes requisitos:
+        <br>
+        <br>
+        <ion-icon name="close-outline" color="danger" *ngIf="estadosForm(loginForm.valid)==0"></ion-icon>
+        <ion-icon name="checkmark-outline"color="success" *ngIf="estadosForm(loginForm.valid)==1"></ion-icon>
+        Debe insertar un correo valido.
+        <br>
+        <ion-icon name="close-outline" color="danger" *ngIf="estadosPass(usuario.contrasena)==0"></ion-icon>
+        <ion-icon name="checkmark-outline"color="success" *ngIf="estadosPass(usuario.contrasena)==1"></ion-icon>
+        La contraseña debe contener al menos 6 caracteres.
+      </p>
+
+      <br>
 
       <ion-button COLOR="danger">Cancelar</ion-button>
-      <ion-button color="success" style="float:right;">Registrar</ion-button>
+      <ion-button color="success" style="float:right;" [disabled]= "(!loginForm.valid || usuario.contrasena==null || usuario.contrasena.length<=5)" (click)="validar()">Registrar</ion-button>
 
           </ion-card-content>
         </ion-card>

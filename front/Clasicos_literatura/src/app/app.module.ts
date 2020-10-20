@@ -22,14 +22,15 @@ import {TextToSpeech} from '@ionic-native/text-to-speech/ngx';
   declarations: [AppComponent, LecturaPipe],
   entryComponents: [],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule.enablePersistence(),
     AppRoutingModule,
     CommonModule,
-    PipesModule
+    PipesModule,
+   
   ],
   providers: [
     StatusBar,
