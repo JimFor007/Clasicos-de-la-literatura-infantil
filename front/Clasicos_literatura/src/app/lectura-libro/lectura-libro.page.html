@@ -8,21 +8,20 @@
 </ion-header>
 
 <ion-content>
+  <div style=" text-align: left; background-color: {{backgroundColor}}">
   <ion-grid>
     <ion-row>
       <ion-col>
-        <div
-        style="border: solid; text-align: left; background-color: {{backgroundColor}}">
         <ion-text>
-          <h2 style="text-align: center; margin-bottom: 0%; color: {{textColor}}">{{initalPage}}</h2>
+          <h2 style="font-family: Brush Script MT; font-size: xx-large; text-align: center; margin-bottom: 0%; color: {{textColor}}">{{initalPage}}</h2>
         </ion-text>
           <ion-text>
-            <p style="text-align: left; padding: 5%; font-size: {{textSize}}; color: {{textColor}}">{{initialContent}} </p>
+            <p style="font-family:Perpetua; text-align: left; padding: 5%; font-size: {{textSize}}; color: {{textColor}}">{{initialContent}} </p>
           </ion-text>
-        </div>
         </ion-col>
     </ion-row>
   </ion-grid>
+  </div>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
