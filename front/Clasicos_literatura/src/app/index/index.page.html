@@ -1,60 +1,50 @@
-<ion-content padding>
+<ion-content class="background" padding>
   <ion-grid fixed>
-
-    <ion-row>
-      <ion-col>
-        <ion-img style="width: 100px; height: 100px;" src="../assets/images/Kimera_Logo.png"></ion-img>
-      </ion-col>
-    </ion-row>
-
-    <ion-row style="margin-bottom: 5%;">
-      <ion-col>
-        <ion-img src="../assets/images/Titulo_App.png"></ion-img>
-      </ion-col>
-    </ion-row>
-
-    <ion-row style="padding-bottom: 5%;">
-      <ion-col class="ion-align-self-start">
-        <ion-button expand="block" color="warning" [routerLink] = "['/books/autor']">Por autor</ion-button>
-      </ion-col>
-      <ion-col class="ion-align-self-end">
-        <ion-button expand="block" color="warning" [routerLink] = "['/books']">Todos los libros</ion-button>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col class="ion-align-self-start">
-        <ion-button expand="block" color="success" [routerLink] = "['/autores']"> Autores</ion-button>
-      </ion-col>
-      <ion-col class="ion-align-self-end">
-        <ion-button expand="block" color="success" [routerLink]= "['/books/favoritos']">Favoritos</ion-button>
-      </ion-col>
-    </ion-row>
-
-    <ion-row style="margin-top: 30px;">
-      <ion-col></ion-col>
-      <ion-col class="ion-align-self-center">
-        <ion-button expand="block" color="success" [routerLink] = "['/notes']">Orientación</ion-button>
-      </ion-col>
-     <ion-col></ion-col>
-    </ion-row>
-
-    <ion-row style="margin: 5% 0%">
-      <ion-col></ion-col>
-      <ion-col>
-        <ion-img draggable="false" src= "../assets/images/Book_Icon.png">
-        </ion-img>
-      </ion-col>
-      <ion-col></ion-col>
-    </ion-row>
-
-    <ion-row style="margin-top: 30px;">
-      <ion-col></ion-col>
-      <ion-col>
-        <ion-button expand="block" COLOR="danger" [routerLink] = "['/register']">SALIDA</ion-button>
-      </ion-col>
-      <ion-col></ion-col>
-    </ion-row>
-
-  </ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-img style="width: 100px; height: 100px;" src="../assets/images/Kimera_Logo.png"></ion-img>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row style="margin-bottom: 10%;">
+        <ion-col>
+          <ion-img src="../assets/images/Titulo_App.png"></ion-img>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row style="padding-bottom: 10%;">
+        <ion-col class="ion-align-self-start">
+          <ion-button expand="block" color="warning" [routerLink] = "['/books/autor']">Por autor</ion-button>
+        </ion-col>
+        <ion-col class="ion-align-self-end">
+          <ion-button expand="block" color="warning" [routerLink] = "['/books']">Todos los libros</ion-button>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col class="ion-align-self-start">
+          <ion-button expand="block" color="success" [routerLink] = "['/autores']"> Autores</ion-button>
+        </ion-col>
+        <ion-col class="ion-align-self-end">
+          <ion-button expand="block" color="success" [routerLink]= "['/books/favoritos']">Favoritos</ion-button>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row style="margin-top: 30px;">
+        <ion-col></ion-col>
+        <ion-col class="ion-align-self-center">
+          <ion-button expand="block" color="success" [routerLink] = "['/notes']">Orientación</ion-button>
+        </ion-col>
+       <ion-col></ion-col>
+      </ion-row>
+  
+      <ion-row style="margin: 5% 0%">
+        <ion-col></ion-col>
+        <ion-col>
+          <ion-img draggable="false" src= "../assets/images/Book_Icon.png">
+          </ion-img>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>
