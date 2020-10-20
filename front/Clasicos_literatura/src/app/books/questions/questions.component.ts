@@ -16,7 +16,8 @@ export class QuestionsComponent implements OnInit {
    key = new Object();
   
 
-  @Input() libro:string;
+
+  @Input() book1:book;
   choosed:string;
   tetha:string;
   bethas:string[] = []
@@ -27,11 +28,8 @@ export class QuestionsComponent implements OnInit {
   answers:string[]=[];
 
   authors:author[] = [];
-  book1:book;
 
-  constructor(public alertController: AlertController,private router: Router, private storage: Storage,private testService: TestService) {
-    this.authors = this.testService.getAllAuthors();
-   }
+  constructor(public alertController: AlertController,private router: Router, private storage: Storage,private testService: TestService) {}
 
   findBook(title: string){
     this.authors.forEach(author => {
@@ -55,9 +53,9 @@ export class QuestionsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.findBook(this.libro)
-    this.initQuiz();
-    this.tetha = this.bethas[0]
+      console.log(this.book1)
+      this.initQuiz();
+      this.tetha = this.bethas[0]
   }
 
   async presentAlertConfirm(score:number) {

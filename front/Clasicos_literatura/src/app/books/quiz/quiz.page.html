@@ -15,7 +15,7 @@
           <ion-card-header>
             <ion-card-title style="text-align: center;">{{libro}}</ion-card-title>
           </ion-card-header>
-          <ion-img src="{{book1.imagen}}"></ion-img>
+          <ion-img src="{{img}}"></ion-img>
           <ion-card-content>
             <ion-text class="ion-text-wrap">Selecciona la respuesta correcta</ion-text>
           </ion-card-content>
@@ -27,7 +27,38 @@
     <ion-row>
       <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12">
         <ion-card>
-          <app-questions [libro]= "libro"></app-questions>
+          <ion-card-header>
+            <ion-card-header>{{tetha}}</ion-card-header>
+          </ion-card-header>
+          <div>
+            <ion-radio-group [(ngModel)] ="choosed">
+            <ion-item>
+              <ion-label class="ion-text-wrap">{{respuestasAux[0]}}</ion-label>
+              <ion-radio value="{{respuestasAux[0]}}"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label class="ion-text-wrap">{{respuestasAux[1]}}</ion-label>
+              <ion-radio value="{{respuestasAux[1]}}"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label class="ion-text-wrap">{{respuestasAux[2]}}</ion-label>
+              <ion-radio value="{{respuestasAux[2]}}"></ion-radio>
+            </ion-item>
+            </ion-radio-group>
+            <ion-grid>
+              <ion-row>
+                <ion-col></ion-col>
+                <ion-col>
+                  <ion-button size="small" expand="block" color="success" (click)= "add()">Siguiente</ion-button>
+                </ion-col>
+                <ion-col></ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-footer>
+              <ion-progress-bar color="secondary" value="{{answers.length/respuestas.length}}"></ion-progress-bar>
+            </ion-footer>
+          </div>
+         <!-- <app-questions [book1]= "book1"></app-questions>  -->
         </ion-card>
       </ion-col>
     </ion-row>
