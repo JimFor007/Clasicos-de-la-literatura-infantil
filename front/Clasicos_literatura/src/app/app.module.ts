@@ -16,7 +16,7 @@ import { PipesModule } from './pipes/pipes.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import {TextToSpeech} from '@ionic-native/text-to-speech/ngx'
+import {TextToSpeech} from '@ionic-native/text-to-speech/ngx';
 
 @NgModule({
   declarations: [AppComponent, LecturaPipe],
