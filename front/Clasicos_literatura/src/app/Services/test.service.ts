@@ -5,6 +5,7 @@ import { quiz } from '../models/quiz.model';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators'
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -202,7 +203,7 @@ export class TestService {
 
   todos: Observable<author[]>;
  
-  constructor(db: AngularFirestore) { 
+  constructor(db: AngularFirestore, private auth: AngularFireAuth) { 
     this.todosCollection = db.collection<author>('authors');
     this.todos=this.todosCollection.snapshotChanges().pipe(map(
       actions=>{
@@ -224,6 +225,10 @@ export class TestService {
   getAuthor(id:string){
     return this.todosCollection.doc<author>(id).valueChanges();
   }
+// crea usuario en firestore
+   createUser(correo:string, contrasena:string){
+    return this.auth.createUserWithEmailAndPassword(correo,contrasena);
+   }
   
   updateFavoriteBook(){}
 

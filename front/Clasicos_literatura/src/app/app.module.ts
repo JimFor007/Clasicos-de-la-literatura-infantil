@@ -16,20 +16,21 @@ import { PipesModule } from './pipes/pipes.module';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import {TextToSpeech} from '@ionic-native/text-to-speech/ngx'
+import {TextToSpeech} from '@ionic-native/text-to-speech/ngx';
 
 @NgModule({
   declarations: [AppComponent, LecturaPipe],
   entryComponents: [],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule.enablePersistence(),
     AppRoutingModule,
     CommonModule,
-    PipesModule
+    PipesModule,
+   
   ],
   providers: [
     StatusBar,

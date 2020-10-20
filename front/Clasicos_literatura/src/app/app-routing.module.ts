@@ -51,6 +51,10 @@ const routes: Routes = [
     path: 'lecturalibro/:book',
     loadChildren: () => import('./lectura-libro/lectura-libro.module').then( m => m.LecturaLibroPageModule)
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
 
 
 ];
