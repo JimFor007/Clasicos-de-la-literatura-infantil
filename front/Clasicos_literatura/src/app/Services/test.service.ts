@@ -87,7 +87,7 @@ export class TestService {
         titulo: "capitulo 1",
         contenido: "lorem"
       }],
-      imagen: "https://static.megustaleer.com/images/libros_650_x/EH408815.jpg",
+      imagen: "../../../assets/images/Mafalda.jpg",
       trivia: false,
       favorito: false,
       quizes: [{
