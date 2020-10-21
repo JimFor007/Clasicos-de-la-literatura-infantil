@@ -18,11 +18,8 @@ export class AutoresPage implements OnInit {
     this.testService.getTodos().subscribe(
       data=>{
         this.authors = data;
-          console.log(data);
-      }
-    );
-    this.authors=this.testService.authors;
-    
+
+      });    
   }
 
 
