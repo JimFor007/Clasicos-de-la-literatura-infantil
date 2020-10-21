@@ -20,11 +20,15 @@ export class AuthorbooksPage implements OnInit {
     this.testService.getTodos().subscribe(
       data=>{
         this.authors= data;
-      }
-    )
+      });
     this.router2.paramMap.subscribe(params=>{
       this.name= params.get('author')     
   });
+  this.print()
+  }
+
+  print(){
+    console.log(this.authors)
   }
   async presentAlertConfirm(book: book) {
     const alert = await this.alertController.create({

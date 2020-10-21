@@ -16,7 +16,7 @@
     <ion-row>
       <ion-col size-lg="12" size-md="4" size-sm="6" size-xs="12" *ngFor= 'let author of authors | filterAuthor: textoBuscar'>
         <ion-list>
-          <ion-item (click)="biography(author.id)">
+          <ion-item detail (click)="biography(author.id)">
             <ion-avatar slot="start">
               <img src={{author.image}}>
             </ion-avatar>

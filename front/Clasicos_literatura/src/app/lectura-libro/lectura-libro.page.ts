@@ -26,9 +26,7 @@ export class LecturaLibroPage implements OnInit {
   textSize: string=this.sizeText[0];
 
 
-  constructor(private testService: TestService, private router: ActivatedRoute, private _stts: TtsService) {
-    this.authors=this.testService.authors;
-   }
+  constructor(private testService: TestService, private router: ActivatedRoute, private _stts: TtsService) {}
 
    findBook(title: string){
     this.authors.forEach(author => {
@@ -43,13 +41,17 @@ export class LecturaLibroPage implements OnInit {
   }
   
   speech(){
-    for (let i = 0; i < this.bookContent.length; i++) {
-      this._stts.discurso(this.initalPage[i]+this.bookContent[i]);
+    let text: string;
+    text=this.bookTitle[0]+" "+this.bookContent[0]+" ";
+    for (let i = 1; i < this.bookContent.length; i++) {
+      text=text+" "+this.bookTitle[i]+" "+this.bookContent[i]+" ";
     }
+    console.log(text)
+    this._stts.discurso(text);
   }
 
   stopSpeech(){
-    this._stts.discurso(null);
+    this._stts.discurso(" ");
   }
 
   readBook(){
@@ -60,14 +62,17 @@ export class LecturaLibroPage implements OnInit {
   }
 
   ngOnInit() {
-    this.router.paramMap.subscribe(params=>{
-      this.libro= params.get('book')
-    });
-    this.findBook(this.libro)
-    this.readBook();
-    this.initalPage=this.bookTitle[0]
-    this.initialContent=this.bookContent[0]
-    
+    this.testService.getTodos().subscribe(
+      data=>{
+        this.authors = data;
+        this.router.paramMap.subscribe(params=>{
+          this.libro= params.get('book')
+        });
+        this.findBook(this.libro)
+        this.readBook();
+          this.initalPage=this.book1.capitulos[0].titulo
+          this.initialContent=this.book1.capitulos[0].contenido
+      });
   }
 
   
