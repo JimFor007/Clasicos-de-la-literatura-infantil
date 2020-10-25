@@ -4,6 +4,8 @@ import { FormGroup, FormControl,Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { TestService } from '../Services/test.service';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
+import { author } from '../models/author.model';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +16,7 @@ export class RegisterPage implements OnInit {
 
   usuario: user;
   registrado:false;
+  todoslibros: author[];
 
   loginForm = new FormGroup({
     userEmail: new FormControl('',Validators.email),
@@ -26,7 +29,7 @@ export class RegisterPage implements OnInit {
     }
   };
   
-  constructor(private auth: AngularFireAuth, private service: TestService, public toastController: ToastController) { 
+  constructor(public loadingController: LoadingController,private auth: AngularFireAuth, private service: TestService, public toastController: ToastController) { 
     this.usuario ={
       correo:null,
       contrasena:null
@@ -36,24 +39,41 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
   }
+  async presentLoading(uid: string) {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Registrando usuario',
+    });
+    await loading.present();
+    
+    this.service.getTodos().subscribe(
+      data=>{
+        this.todoslibros = data;      
+          this.service.postUserDoc(uid,this.todoslibros);
+          this.presentToast('Usuario Creado exitosamente');
+      }
+    )
 
+    
+    loading.dismiss();
+  }
 
   validar(){
     this.usuario.correo= this.loginForm.value.userEmail;
     console.log(this.usuario);
 
     this.service.createUser(this.usuario.correo,this.usuario.contrasena).then(data=>{
-      console.log("Usuario creado")
+      this.presentLoading(data.user.uid);
     },
     err=>{
-        this.presentToast();
+        this.presentToast('Usuario existente, pruebe con otro correo ');
     });
       }
 
-  async presentToast() {
+  async presentToast(message:string) {
     const toast = await this.toastController.create({
-      message: 'Usuario existente, pruebe con otro correo ',
-      duration: 2000
+      message,
+      duration: 3000
       });
     toast.present();
    }

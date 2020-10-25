@@ -203,14 +203,14 @@ export class TestService {
 
   todos: Observable<author[]>;
  
-  constructor(db: AngularFirestore, private auth: AngularFireAuth) { 
+  constructor(private db: AngularFirestore, private auth: AngularFireAuth) { 
     this.todosCollection = db.collection<author>('authors');
     this.todos=this.todosCollection.snapshotChanges().pipe(map(
       actions=>{
         return actions.map(a=>{
           const data = a.payload.doc.data();
           const id = a.payload.doc.id;
-          return {id, ...data};
+          return {...data};
         });
       }
     ));
@@ -228,6 +228,11 @@ export class TestService {
 // crea usuario en firestore
    createUser(correo:string, contrasena:string){
     return this.auth.createUserWithEmailAndPassword(correo,contrasena);
+   }
+
+// envia datos a la tabla del usuario
+   postUserDoc(uid:string, doc:author[]){
+      this.db.collection('users').doc(uid).set({doc});
    }
   
   updateFavoriteBook(){}
