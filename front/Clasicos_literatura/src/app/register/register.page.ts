@@ -42,7 +42,7 @@ export class RegisterPage implements OnInit {
   async presentLoading(uid: string) {
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
-      message: 'Registrando usuario',
+      message: 'Registrando usuario'
     });
     await loading.present();
     

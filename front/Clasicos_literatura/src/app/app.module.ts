@@ -14,6 +14,7 @@ import { LecturaPipe } from './lectura.pipe';
 import { PipesModule } from './pipes/pipes.module';
 
 import { AngularFireModule } from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth'
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import {TextToSpeech} from '@ionic-native/text-to-speech/ngx';
@@ -25,12 +26,12 @@ import {TextToSpeech} from '@ionic-native/text-to-speech/ngx';
     BrowserModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(),
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule.enablePersistence({synchronizeTabs:true}),
     AppRoutingModule,
     CommonModule,
     PipesModule,
-   
   ],
   providers: [
     StatusBar,

@@ -6,6 +6,8 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators'
 import { AngularFireAuth } from '@angular/fire/auth';
+import { promise } from 'protractor';
+import { user } from '../models/usuario.model';
 
 @Injectable({
   providedIn: 'root'
@@ -200,8 +202,10 @@ export class TestService {
   ]
   
   private todosCollection: AngularFirestoreCollection<author>;
+  
 
   todos: Observable<author[]>;
+ 
  
   constructor(private db: AngularFirestore, private auth: AngularFireAuth) { 
     this.todosCollection = db.collection<author>('authors');
@@ -230,11 +234,25 @@ export class TestService {
     return this.auth.createUserWithEmailAndPassword(correo,contrasena);
    }
 
+// login
+   login(email: string, password: string){
+     return new Promise((resolve, rejected)=>{
+      this.auth.signInWithEmailAndPassword(email,password).then(user=>{
+        resolve(user)
+      }).catch(err=>rejected(err))
+     });
+  }
+
 // envia datos a la tabla del usuario
    postUserDoc(uid:string, doc:author[]){
       this.db.collection('users').doc(uid).set({doc});
    }
   
+   getUserData(id: string){
+      this.db.collection('users').doc<author>(id).valueChanges();
+
+   }
+
   updateFavoriteBook(){}
 
   getAllAuthors(){

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-
+import { AngularFireAuth } from '@angular/fire/auth';
+import { TestService } from 'src/app/Services/test.service';
+import{Router} from '@angular/router'
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -8,9 +10,17 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
+  email:string
+  password:string
 
+  constructor(private alertController: AlertController, private auth: TestService, private Router: Router) { }
 
-  constructor(private alertController: AlertController) { }
+  login(){
+    this.auth.login(this.email,this.password).then(res=>{
+      this.Router.navigate(['/index'])
+    }).catch()
+    
+  }
 
   async presentAlert() {
     const alert = await this.alertController.create({

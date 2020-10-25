@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { author } from 'src/app/models/author.model';
 import { TestService } from '../../Services/test.service';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-favorites',
@@ -21,7 +22,14 @@ export class FavoritesPage implements OnInit {
         console.log('todos los libros', this.authors);
       }
     )*/
-    this.authors = this.testService.getAllAuthors();
+    
+    //let user = firebase.auth().currentUser;
+    console.log(this.testService.getAuthor("0WeoFJm9GCpsqEdKdkTG"))
+    console.log(this.testService.getUserData("y3Splqi8ZAYoeH4DG9EE9PQctaB3"));
+      
+    
+  let docRF=this.testService.getUserData("y3Splqi8ZAYoeH4DG9EE9PQctaB3");
+  
   }
   
   name(book: string){
