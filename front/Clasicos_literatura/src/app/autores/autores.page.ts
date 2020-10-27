@@ -18,7 +18,6 @@ export class AutoresPage implements OnInit {
     this.testService.getTodos().subscribe(
       data=>{
         this.authors = data;
-
       });    
   }
 

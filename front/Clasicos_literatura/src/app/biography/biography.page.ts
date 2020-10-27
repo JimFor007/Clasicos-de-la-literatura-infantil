@@ -27,7 +27,6 @@ export class BiographyPage implements OnInit {
           this.biography=data.biography;
           this.image=data.image;
           this.birthDate= data.birthDate;
-          console.log(data.books[0].quizes)
         }
       );
   });

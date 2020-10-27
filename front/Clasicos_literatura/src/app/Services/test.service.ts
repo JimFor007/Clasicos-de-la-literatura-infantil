@@ -8,6 +8,7 @@ import {map} from 'rxjs/operators'
 import { AngularFireAuth } from '@angular/fire/auth';
 import { promise } from 'protractor';
 import { user } from '../models/usuario.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -207,14 +208,14 @@ export class TestService {
   todos: Observable<author[]>;
  
  
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth) { 
+  constructor(private db: AngularFirestore, private auth: AngularFireAuth, private router: Router) { 
     this.todosCollection = db.collection<author>('authors');
     this.todos=this.todosCollection.snapshotChanges().pipe(map(
       actions=>{
         return actions.map(a=>{
           const data = a.payload.doc.data();
           const id = a.payload.doc.id;
-          return {...data};
+          return {...data, id};
         });
       }
     ));
@@ -241,6 +242,24 @@ export class TestService {
         resolve(user)
       }).catch(err=>rejected(err))
      });
+  }
+
+  logout(){
+    return this.auth.signOut().then(()=>{
+      this.router.navigate(['/login'])
+    });
+  }
+
+  currentUser(){
+    this.auth.onAuthStateChanged(function(user){
+      if(user){
+        return user.providerData.forEach(function(profile){
+          console.log(profile.displayName)
+        });
+      }else{
+        console.log("error");
+      }
+    })
   }
 
 // envia datos a la tabla del usuario

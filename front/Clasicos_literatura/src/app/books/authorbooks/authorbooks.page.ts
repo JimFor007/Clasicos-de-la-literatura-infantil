@@ -24,7 +24,7 @@ export class AuthorbooksPage implements OnInit {
     this.router2.paramMap.subscribe(params=>{
       this.name= params.get('author')     
   });
-  this.print()
+  
   }
 
   print(){
