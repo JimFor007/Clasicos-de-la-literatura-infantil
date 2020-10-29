@@ -265,6 +265,13 @@ export class TestService {
     });
   }
 
+  //estado del usuario
+
+  stateUser(){
+    return this.auth.authState;
+
+  }
+
   currentUser(){
     this.auth.onAuthStateChanged(function(user){
       if(user){
