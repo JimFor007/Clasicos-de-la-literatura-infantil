@@ -26,6 +26,7 @@ prueba: any;
 
   constructor(public toastController: ToastController,public loadingController: LoadingController,private test: TestService, db: AngularFirestore,public alertController: AlertController) {
     this.Verifiacion();
+    
     /*
     -------//--CON ESTA LINEA SE AGREGA LOS DATOS A FIRESTORE ( IMPORTANTE: DEJARLO COMENTADO POR SI SE LLEGA A BORRAR DEL FIRESTORE) //--------------
     
@@ -39,7 +40,8 @@ prueba: any;
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   async presentToast(message:string) {
     const toast = await this.toastController.create({
@@ -78,11 +80,6 @@ prueba: any;
       message: 'Verificando Usuario...'
     });
     await loading.present();
-    
-
-    
-    loading.dismiss();
-    this.presentAlertConfirm();
 
     this.test.stateUser().subscribe(data=>{
       if(data === null){this.email = null;
@@ -94,8 +91,7 @@ prueba: any;
 
       }
     }
-    );
-
+    ); 
   }
 
 
