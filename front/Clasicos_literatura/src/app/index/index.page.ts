@@ -54,7 +54,7 @@ email: string;
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: '¿Seguro que desea cerrar sesion?',
-      message: 'se cerrara la sesion de su <strong>'+this.email+'</strong>, debera iniciar sesion nuevamente',
+      message: 'se cerrara la sesion de <strong>'+this.email+'</strong>, debera iniciar sesion nuevamente',
       buttons: [
         {
           text: 'Cancelar',
