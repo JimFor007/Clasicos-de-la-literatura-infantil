@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { TestService } from 'src/app/Services/test.service';
-import{Router} from '@angular/router'
+import{Router} from '@angular/router';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,14 +14,25 @@ export class LoginPage implements OnInit {
   email:string
   password:string
 
-  constructor(private alertController: AlertController, private auth: TestService, private Router: Router) { }
+  constructor(public toastController: ToastController,private alertController: AlertController, private auth: TestService, private Router: Router) { }
 
-  login(){
-    this.auth.login(this.email,this.password).then(res=>{
+  login(email: string, password:string){  
+    this.auth.login(email,password).then(res=>{
+      this.presentToast('Bienvenido');
       this.Router.navigate(['/index'])
-    }).catch()
+    }).catch(err =>{
+      this.presentToast('Usuario invalido o inexistente, Pruebe de nuevo');
+    })
     
   }
+
+  async presentToast(message:string) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 3000
+      });
+    toast.present();
+   }
 
   async presentAlert() {
     const alert = await this.alertController.create({

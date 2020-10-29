@@ -51,11 +51,9 @@ export class RegisterPage implements OnInit {
         this.todoslibros = data;      
           this.service.postUserDoc(uid,this.todoslibros);
           this.presentToast('Usuario Creado exitosamente');
+          loading.dismiss();
       }
     )
-
-    
-    loading.dismiss();
   }
 
   validar(){
