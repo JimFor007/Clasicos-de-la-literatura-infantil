@@ -17,7 +17,7 @@ export class IndexPage implements OnInit {
 
 authors: author[];
 email: string;
-
+name: string;
 
   constructor(public loadingController: LoadingController,private test: TestService, db: AngularFirestore,public alertController: AlertController) {
     /*
@@ -34,6 +34,10 @@ email: string;
   }
 
   ngOnInit() {
+    this.test.stateUser().subscribe(data=>{
+      this.email = data.email;
+      this.name=data.displayName
+    }); 
   }
   async presentLoading() {
     const loading = await this.loadingController.create({
@@ -42,19 +46,16 @@ email: string;
     });
     await loading.present();
     
-    this.test.stateUser().subscribe(data=>{
-      this.email = data.email;
-      loading.dismiss();
+    
+    loading.dismiss();
     this.presentAlertConfirm();
-    }
-    ); 
   }
 
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: '¿Seguro que desea cerrar sesion?',
-      message: 'se cerrara la sesion de <strong>'+this.email+'</strong>, debera iniciar sesion nuevamente',
+      message: 'se cerrara la sesion de <strong>'+this.email+'</strong>, deberá iniciar sesion nuevamente',
       buttons: [
         {
           text: 'Cancelar',
