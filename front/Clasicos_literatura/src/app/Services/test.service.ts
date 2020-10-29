@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { book } from '../models/libro.model';
 import {author} from '../models/author.model';
+import{userFavorite} from '../models/userFavorite.model';
 import { quiz } from '../models/quiz.model';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators'
 import { AngularFireAuth } from '@angular/fire/auth';
-import { promise } from 'protractor';
+import { promise, element } from 'protractor';
 import { user } from '../models/usuario.model';
 import { Router } from '@angular/router';
 
@@ -202,11 +203,12 @@ export class TestService {
   }
   ]
   
+  private libro: userFavorite[];
   private todosCollection: AngularFirestoreCollection<author>;
-  
-
   todos: Observable<author[]>;
- 
+  
+  private usersCollection: AngularFirestoreCollection<userFavorite>;
+  userFavorites: Observable<userFavorite[]>;
  
   constructor(private db: AngularFirestore, private auth: AngularFireAuth, private router: Router) { 
     this.todosCollection = db.collection<author>('authors');
@@ -219,8 +221,21 @@ export class TestService {
         });
       }
     ));
+
+    this.usersCollection = db.collection<userFavorite>('usersTest');
+    this.userFavorites= this.usersCollection.snapshotChanges().pipe(map(a=>{
+      return a.map(i=>{
+        const data=i.payload.doc.data();
+        const id = i.payload.doc.id;
+        return {...data, id}
+      })
+    }))
+
   }
 
+  getUserData(id: string){
+    return this.usersCollection.doc<userFavorite[]>(id).valueChanges();
+ }
 // retorna toda la coleccion
   getTodos(){
     console.log(this.todos)
@@ -264,13 +279,29 @@ export class TestService {
 
 // envia datos a la tabla del usuario
    postUserDoc(uid:string, doc:author[]){
+
       this.db.collection('users').doc(uid).set({doc});
    }
-  
-   getUserData(id: string){
-      this.db.collection('users').doc<author>(id).valueChanges();
+
+   create(uid: string){
+    let aux=this.getTodos();
+    let libros=[];
+    aux.forEach(e => {
+      for (let i = 0; i < e.length; i++) {
+        for (let j = 0; j < e[i].books.length; j++) {
+          libros.push({titulo:e[i].books[j].titulo,
+            imagen: e[i].books[j].imagen, 
+            apunte:"",
+            favorito:false
+          })
+        }
+      }
+      this.db.collection('usersTest').doc(uid).set({libros});
+    });
 
    }
+  
+   
 
   updateFavoriteBook(){}
 

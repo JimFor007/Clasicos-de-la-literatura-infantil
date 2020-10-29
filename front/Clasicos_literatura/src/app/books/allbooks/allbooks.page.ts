@@ -21,11 +21,11 @@ export class AllbooksPage implements OnInit {
   }
 
   ngOnInit() {
-    /*this.testService.getTodos().subscribe(
+    this.testService.getTodos().subscribe(
       data=>{
         this.authors= data;
-      });*/
-      this.authors=this.testService.getAllAuthors();
+      });
+      
     }
   search(event){
     this.textoBuscar=event.detail.value
