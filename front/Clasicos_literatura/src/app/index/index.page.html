@@ -3,11 +3,23 @@
       <ion-row>
         <ion-col>
         <div style="display: flex;">
-         <ion-img style="width: 100px; height: 100px;" src="../assets/images/Kimera_Logo.png"></ion-img> 
-         <button style="outline: none; color: black; background-color: transparent; width: 50px; height: 50px;
-         margin-inline-start: auto; margin-top: 4%; margin-top: 28px;" (click)="presentLoading()">
-          <ion-icon name="log-out-outline" style="font-size: 40px;"></ion-icon>
+
+          <ion-img style="width: 100px; height: 100px;" src="../assets/images/Kimera_Logo.png"></ion-img> 
+
+         <button style="outline: none; color: black; background-color: transparent; width: 55px; height: 50px;
+         margin-inline-start: auto; margin-top: 4%; margin-top: 28px;" [routerLink]="['/login']" [disabled]="email!=null">
+          <ion-icon name="log-in-outline" style="font-size: 40px;" color="medium" *ngIf="email!=null"></ion-icon>
+          <ion-icon name="log-in-outline" style="font-size: 40px;" *ngIf="email==null"></ion-icon>
+         <div style="margin-left: 5px; color: #DDDDDD;" *ngIf="email!=null">Iniciar</div> 
+         <div style="margin-left: 5px;" *ngIf="email==null">Iniciar</div> 
         </button>
+          
+         <button style="outline: none; color: black; background-color: transparent; width: 57px; height: 50px;
+         margin-inline-start: auto; margin-top: 4%; margin-top: 28px;" (click)="presentLoading()"> 
+          <ion-icon name="log-out-outline" style="font-size: 40px;"></ion-icon>
+          <div style="margin-right: 7px;">Cerrar</div> 
+        </button>
+    
         </div>
 
             

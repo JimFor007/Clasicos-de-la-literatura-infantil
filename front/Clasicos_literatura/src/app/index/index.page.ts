@@ -7,6 +7,7 @@ import {map} from 'rxjs/operators';
 import { AlertController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { LoadingController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-index',
@@ -17,9 +18,11 @@ export class IndexPage implements OnInit {
 
 authors: author[];
 email: string;
+prueba: any;
 
 
-  constructor(public loadingController: LoadingController,private test: TestService, db: AngularFirestore,public alertController: AlertController) {
+  constructor(public toastController: ToastController,public loadingController: LoadingController,private test: TestService, db: AngularFirestore,public alertController: AlertController) {
+    this.Verifiacion();
     /*
     -------//--CON ESTA LINEA SE AGREGA LOS DATOS A FIRESTORE ( IMPORTANTE: DEJARLO COMENTADO POR SI SE LLEGA A BORRAR DEL FIRESTORE) //--------------
     
@@ -35,20 +38,59 @@ email: string;
 
   ngOnInit() {
   }
+
+  async presentToast(message:string) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 3000
+      });
+    toast.present();
+   }
+
+
   async presentLoading() {
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Cargando...'
     });
     await loading.present();
+
     
-    this.test.stateUser().subscribe(data=>{
-      this.email = data.email;
+ 
+      if(this.email === null){
+        loading.dismiss();
+        this.authFailed();
+      }else{
       loading.dismiss();
     this.presentAlertConfirm();
-    }
-    ); 
+      }
+
   }
+
+  async Verifiacion() {
+
+    this.prueba = this.test.stateUser();
+    console.log(this.prueba);
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Verificando Usuario...'
+    });
+    await loading.present();
+    
+    this.test.stateUser().subscribe(data=>{
+      if(data === null){this.email = null;
+        loading.dismiss();
+    }
+      else{
+      this.email = data.email;
+      loading.dismiss();
+
+      }
+    }
+    );
+  }
+
+
 
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
@@ -65,7 +107,25 @@ email: string;
         }, {
           text: 'Confirmar',
           handler: () => {
+            this.presentToast('Cerraste sesion, Vuelve pronto!!');
             this.logOut();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async authFailed() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Usted no esta autenticado',
+      message: 'No se puede cerrar sesion si no esta autenticado.',
+      buttons: [
+       {
+          text: 'Confirmar',
+          handler: () => {
           }
         }
       ]
