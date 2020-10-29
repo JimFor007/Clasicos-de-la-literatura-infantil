@@ -3,17 +3,7 @@
       <ion-row>
         <ion-col>
         <div style="display: flex;">
-         <ion-img style="width: 100px; height: 100px;" src="../assets/images/Kimera_Logo.png"></ion-img>
-         <div *ngIf="email!=undefined">
-          <button style="outline: none; color: black; background-color: transparent; width: 50px; height: 50px;
-         margin-inline-start: auto; margin-top: 4%; margin-top: 28px;" (click)="presentLoading()">
-          <ion-icon name="log-out-outline"  style="font-size: 40px;"></ion-icon>
-        </button>
-         </div>
-
-
           <ion-img style="width: 100px; height: 100px;" src="../assets/images/Kimera_Logo.png"></ion-img> 
-
          <button style="outline: none; color: black; background-color: transparent; width: 55px; height: 50px;
          margin-inline-start: auto; margin-top: 4%; margin-top: 28px;" [routerLink]="['/login']" [disabled]="email!=null">
           <ion-icon name="log-in-outline" style="font-size: 40px;" color="medium" *ngIf="email!=null"></ion-icon>

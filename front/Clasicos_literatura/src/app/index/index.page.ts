@@ -39,12 +39,7 @@ prueba: any;
 
   }
 
-  ngOnInit() {
-    this.test.stateUser().subscribe(data=>{
-      this.email = data.email;
-      this.name=data.displayName
-    }); 
-  }
+  ngOnInit() {}
 
   async presentToast(message:string) {
     const toast = await this.toastController.create({
