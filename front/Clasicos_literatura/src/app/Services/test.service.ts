@@ -234,7 +234,8 @@ export class TestService {
   }
 
   getUserData(id: string){
-    return this.usersCollection.doc(id).valueChanges();
+    //return this.db.collection('usersTest').doc(id).snapshotChanges();
+    return this.usersCollection.doc<userFavorite>(id).valueChanges();
  }
 // retorna toda la coleccion
   getTodos(){
@@ -271,17 +272,7 @@ export class TestService {
 
   }
 
-  currentUser(){
-    this.auth.onAuthStateChanged(function(user){
-      if(user){
-        return user.providerData.forEach(function(profile){
-          console.log(profile.displayName)
-        });
-      }else{
-        console.log("error");
-      }
-    })
-  }
+  
 
 // envia datos a la tabla del usuario
    postUserDoc(uid:string, doc:author[]){
@@ -289,6 +280,8 @@ export class TestService {
       this.db.collection('users').doc(uid).set({doc});
    }
 
+
+// Crear usuario con lista de libros
    create(uid: string){
     let aux=this.getTodos();
     let libros=[];

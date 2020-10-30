@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { userFavorite } from 'src/app/models/userFavorite.model';
 import { user } from 'src/app/models/usuario.model';
-import { element } from 'protractor';
+
+
 
 
 @Component({
@@ -16,27 +17,24 @@ import { element } from 'protractor';
 export class FavoritesPage implements OnInit {
   
   authors:author[] = [];
-  users: []=[];
+  users: any[]=[];
   constructor(private testService: TestService,private router: Router) { }
 
   ngOnInit() {
-    this.testService.getTodos().subscribe(
-      data=>{
-        this.authors= data;
-        //console.log(data)
-      });
 
-    this.testService.getUserData("usuario1").subscribe(
-      data=>{
-      this.users=data.libros
-      for (let i = 0; i < data.libros.length; i++) {
-        this.users.push(data.libros[i])
-      }
-      console.log(this.users)
+    this.testService.stateUser().subscribe(id=>{
+      this.testService.getUserData(id.uid).subscribe(data=>{
+        this.users=data.libros
+        console.log(this.users)
+      });
     });
-    //this.testService.create("usuario1");
+    
+      
+      //this.testService.create("usuario1");
+      
     
   }
+
   
   name(book: string){
     this.router.navigate(["/notes", book]);

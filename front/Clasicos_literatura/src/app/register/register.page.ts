@@ -48,8 +48,9 @@ export class RegisterPage implements OnInit {
     
     this.service.getTodos().subscribe(
       data=>{
-        this.todoslibros = data;      
-          this.service.postUserDoc(uid,this.todoslibros);
+        this.todoslibros = data;
+          this.service.create(uid);
+          //this.service.postUserDoc(uid,this.todoslibros);
           this.presentToast('Usuario Creado exitosamente');
           loading.dismiss();
       }

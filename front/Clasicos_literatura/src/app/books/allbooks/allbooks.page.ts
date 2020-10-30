@@ -17,6 +17,7 @@ export class AllbooksPage implements OnInit {
   favorite:string="heart-outline";
   favoriteB:boolean=false;
   textoBuscar=''
+  users: any[]=[];
   constructor(private testService: TestService, private router: Router, public alertController: AlertController) { 
   }
 
@@ -25,8 +26,20 @@ export class AllbooksPage implements OnInit {
       data=>{
         this.authors= data;
       });
+      this.testService.getUserData("usuario1").subscribe(data=>{
+        this.users=data.libros
+        
+      });
       
     }
+
+  unFav(book: string){
+    for (let i = 0; i < this.users.length; i++) {
+      if(book==this.users[i].titulo){
+        this.users[i].titulo=false;
+      }
+    }
+  }
   search(event){
     this.textoBuscar=event.detail.value
   }
