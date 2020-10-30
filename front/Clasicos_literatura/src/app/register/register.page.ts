@@ -50,9 +50,8 @@ export class RegisterPage implements OnInit {
       data=>{
         this.todoslibros = data;
           this.service.create(uid);
-          //this.service.postUserDoc(uid,this.todoslibros);
-          this.presentToast('Usuario Creado exitosamente');
           loading.dismiss();
+          this.presentToast('Usuario Creado exitosamente');
       }
     )
   }

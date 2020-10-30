@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="length > 0">
   <ion-grid fixed>
     <ion-row>
       <ion-col size-lg="4" size-md="4" size-sm="6" size-xs="12" *ngFor= 'let book of users'>
@@ -34,4 +34,11 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+</ion-content>
+
+<ion-content *ngIf="length==0">
+
+  <img src="../../../assets/images/nada.gif" style="width: 100%; height: 95%;">
+
+
 </ion-content>

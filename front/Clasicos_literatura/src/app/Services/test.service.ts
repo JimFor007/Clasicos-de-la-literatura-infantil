@@ -222,7 +222,7 @@ export class TestService {
       }
     ));
 
-    this.usersCollection = db.collection('usersTest');
+    this.usersCollection = db.collection('users');
     this.userFavorites= this.usersCollection.snapshotChanges().pipe(map(a=>{
       return a.map(i=>{
         const data=i.payload.doc.data();
@@ -274,30 +274,17 @@ export class TestService {
 
   
 
-// envia datos a la tabla del usuario
+/* envia datos a la tabla del usuario
    postUserDoc(uid:string, doc:author[]){
 
       this.db.collection('users').doc(uid).set({doc});
-   }
+   }*/
 
 
 // Crear usuario con lista de libros
    create(uid: string){
-    let aux=this.getTodos();
-    let libros=[];
-    aux.forEach(e => {
-      for (let i = 0; i < e.length; i++) {
-        for (let j = 0; j < e[i].books.length; j++) {
-          libros.push({titulo:e[i].books[j].titulo,
-            imagen: e[i].books[j].imagen, 
-            apunte:"",
-            favorito:false
-          })
-        }
-      }
-      this.db.collection('usersTest').doc(uid).set({libros});
-    });
-
+      let libros = [];
+      this.db.collection('users').doc(uid).set({libros});
    }
   
    

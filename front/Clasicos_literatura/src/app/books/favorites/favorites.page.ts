@@ -17,15 +17,20 @@ import { user } from 'src/app/models/usuario.model';
 export class FavoritesPage implements OnInit {
   
   authors:author[] = [];
-  users: any[]=[];
+  books: any[]=[];
+  length:number;
+
+
+
   constructor(private testService: TestService,private router: Router) { }
 
   ngOnInit() {
 
     this.testService.stateUser().subscribe(id=>{
       this.testService.getUserData(id.uid).subscribe(data=>{
-        this.users=data.libros
-        console.log(this.users)
+        this.length = data.libros.length;
+        console.log(data.libros.length);
+        this.books = data.libros
       });
     });
     
