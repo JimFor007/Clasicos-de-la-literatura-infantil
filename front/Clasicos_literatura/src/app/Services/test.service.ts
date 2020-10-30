@@ -203,12 +203,12 @@ export class TestService {
   }
   ]
   
-  private libro: userFavorite[];
+ 
   private todosCollection: AngularFirestoreCollection<author>;
   todos: Observable<author[]>;
   
-  private usersCollection: AngularFirestoreCollection<userFavorite>;
-  userFavorites: Observable<userFavorite[]>;
+  private usersCollection: AngularFirestoreCollection<any>;
+  userFavorites: Observable<any>;
  
   constructor(private db: AngularFirestore, private auth: AngularFireAuth, private router: Router) { 
     this.todosCollection = db.collection<author>('authors');
@@ -222,7 +222,7 @@ export class TestService {
       }
     ));
 
-    this.usersCollection = db.collection<userFavorite>('usersTest');
+    this.usersCollection = db.collection('usersTest');
     this.userFavorites= this.usersCollection.snapshotChanges().pipe(map(a=>{
       return a.map(i=>{
         const data=i.payload.doc.data();
@@ -234,11 +234,10 @@ export class TestService {
   }
 
   getUserData(id: string){
-    return this.usersCollection.doc<userFavorite[]>(id).valueChanges();
+    return this.usersCollection.doc(id).valueChanges();
  }
 // retorna toda la coleccion
   getTodos(){
-    console.log(this.todos)
     return this.todos;
   }
 // retorna autor por id

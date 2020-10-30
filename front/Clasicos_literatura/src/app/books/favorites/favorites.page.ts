@@ -16,15 +16,23 @@ import { element } from 'protractor';
 export class FavoritesPage implements OnInit {
   
   authors:author[] = [];
-  users: userFavorite[]=[];
+  users: []=[];
   constructor(private testService: TestService,private router: Router) { }
 
   ngOnInit() {
-    let a= new Array();
+    this.testService.getTodos().subscribe(
+      data=>{
+        this.authors= data;
+        //console.log(data)
+      });
+
     this.testService.getUserData("usuario1").subscribe(
       data=>{
-      this.users=data
-      console.log(this.users.length)
+      this.users=data.libros
+      for (let i = 0; i < data.libros.length; i++) {
+        this.users.push(data.libros[i])
+      }
+      console.log(this.users)
     });
     //this.testService.create("usuario1");
     
