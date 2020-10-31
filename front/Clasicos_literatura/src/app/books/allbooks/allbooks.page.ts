@@ -30,17 +30,31 @@ export class AllbooksPage implements OnInit {
       });
       this.testService.stateUser().subscribe(id=>{
         this.id=id.uid;
+        this.testService.getUserData(id.uid).subscribe(data=>{
+          this.users = data.libros          
+        });
       });
       
     }
 
   addFav(titulo: string, imagen:string,book:book){
-    this.testService.añadirLibro(this.id,titulo, imagen)
-    this.presentAlertConfirm();
+    let exist=false;
+    for(let i=0;i<this.users.length;i++) {
+      if(this.users[i].titulo==titulo){
+        exist=true; 
+        return;
+      }
+    }
+    if(!exist){
+      this.testService.añadirLibro(this.id,titulo, imagen)
+      this.presentAlertConfirm();
+    }
   }
   search(event){
     this.textoBuscar=event.detail.value
   }
+
+  
 
   async presentAlertConfirm() {
     const alert = await this.alertController.create({
