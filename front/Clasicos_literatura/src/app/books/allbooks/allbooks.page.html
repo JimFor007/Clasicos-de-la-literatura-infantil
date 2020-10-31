@@ -24,7 +24,9 @@
               <ion-icon (click)=  name= "heart-outline"></ion-icon>
             </div>-->
             <div>
-              <ion-icon (click)= "addFav(book.titulo, book.imagen)" name= "heart"></ion-icon>
+              <ion-icon style="color: #DDDDDD;;" name= "heart" *ngIf="id==null"></ion-icon>
+              <ion-icon (click)="unFavConfirm(book.titulo,book.imagen)" name= "heart" *ngIf="id!=null && stateicon(book.titulo)==1"></ion-icon>
+              <ion-icon (click)= "addFav(book.titulo, book.imagen)" name= "heart-outline" *ngIf="id!=null && stateicon(book.titulo)==0"></ion-icon>
             </div>
           </ion-card-header>
           <img (click)=read(book.titulo) src="{{ book.imagen }}" />

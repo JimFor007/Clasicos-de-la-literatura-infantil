@@ -40,16 +40,11 @@ export class AllbooksPage implements OnInit {
         else{
         this.id=id.uid;
         this.testService.getUserData(id.uid).subscribe(data=>{
-          this.users = data.libros          
+          this.users = data.libros    
+          this.booksFav=  data.libros;      
         })
         }
       })
-
-        this.testService.getUserData(this.id).subscribe(
-          favorites =>{
-            this.booksFav=  favorites.libros;
-          }
-        )
       }
 
   addFav(titulo: string, imagen:string,book:book){
