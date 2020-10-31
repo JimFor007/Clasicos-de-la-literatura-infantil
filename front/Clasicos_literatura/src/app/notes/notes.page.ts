@@ -12,37 +12,50 @@ import { book } from '../models/libro.model';
 export class NotesPage implements OnInit {
 
   libro:string;
-  authors:author[] = [];
-  book1:book ;
-  apunte:string;
+  imagen:string;
+
+  apunte:string
+  book:[]=[];
+  books: any[]=[];
   text:string;
+  id:string;
 
   constructor(private router: ActivatedRoute, private testService: TestService) { 
-    this.authors = this.testService.getAllAuthors();
+    
   }
 
-  findBook(title: string){
-    this.authors.forEach(author => {
-      let books = author.books;
-      for (let index = 0; index < books.length; index++) {
-        if (books[index].titulo==title) {
-          this.book1=books[index]
-          return books[index];
-        }
-     }
-    });
+  findBook(){
+    this.books.forEach(data=>{
+      console.log(data)
+      if(data.titulo==this.libro){
+      }
+    })
   }
 
-  guardar(text:string){
-    this.book1.apunte=text
+  guardarApunte(){
+    this.testService.guardarApunte(this.id,this.apunte,this.libro,this.imagen);
   }
 
   ngOnInit() {
     this.router.paramMap.subscribe(params=>{
       this.libro= params.get('book')
+      this.testService.stateUser().subscribe(id=>{
+        this.id=id.uid;
+        this.testService.getUserData(id.uid).subscribe(data=>{
+          this.books = data.libros
+          for (let i = 0; i < this.books.length; i++) {
+            console.log(this.books[i])
+            if(this.books[i].titulo==this.libro){
+              this.imagen=this.books[i].imagen;
+              this.apunte=this.books[i].apunte;
+            }
+          }
+          console.log(data.libros.length);
+        });
+      });
   });
-  this.findBook(this.libro);
-  this.apunte=this.book1.apunte
+  
+  
   }
 
 }

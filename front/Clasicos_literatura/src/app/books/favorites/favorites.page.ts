@@ -19,7 +19,7 @@ export class FavoritesPage implements OnInit {
   authors:author[] = [];
   books: any[]=[];
   length:number;
-
+  id:string;
 
 
   constructor(private testService: TestService,private router: Router) { }
@@ -27,20 +27,19 @@ export class FavoritesPage implements OnInit {
   ngOnInit() {
 
     this.testService.stateUser().subscribe(id=>{
+      this.id=id.uid;
       this.testService.getUserData(id.uid).subscribe(data=>{
+        this.books = data.libros
+        console.log(this.books)
         this.length = data.libros.length;
         console.log(data.libros.length);
-        this.books = data.libros
       });
-    });
-    
-      
-      //this.testService.create("usuario1");
-      
-    
+    });    
   }
 
-  
+  unFav(titulo:string,imagen:string, apunte:string){
+    this.testService.eliminarLibro(this.id,titulo,imagen,apunte);
+  }
   name(book: string){
     this.router.navigate(["/notes", book]);
     console.log(book)

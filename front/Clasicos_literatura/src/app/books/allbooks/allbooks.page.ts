@@ -18,6 +18,8 @@ export class AllbooksPage implements OnInit {
   favoriteB:boolean=false;
   textoBuscar=''
   users: any[]=[];
+  books: any[]=[];
+  id: string;
   constructor(private testService: TestService, private router: Router, public alertController: AlertController) { 
   }
 
@@ -26,34 +28,29 @@ export class AllbooksPage implements OnInit {
       data=>{
         this.authors= data;
       });
-      this.testService.getUserData("usuario1").subscribe(data=>{
-        this.users=data.libros
-        
+      this.testService.stateUser().subscribe(id=>{
+        this.id=id.uid;
       });
       
     }
 
-  unFav(book: string){
-    for (let i = 0; i < this.users.length; i++) {
-      if(book==this.users[i].titulo){
-        this.users[i].titulo=false;
-      }
-    }
+  addFav(titulo: string, imagen:string,book:book){
+    this.testService.añadirLibro(this.id,titulo, imagen)
+    this.presentAlertConfirm();
   }
   search(event){
     this.textoBuscar=event.detail.value
   }
 
-  async presentAlertConfirm(book: book) {
+  async presentAlertConfirm() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: book.favorito == true? "removido de favoritos": "añadido de favoritos",
+      header: "añadido de favoritos",
       message: '',
       buttons: [
          {
           text: 'Okay',
           handler: () => {
-            book.favorito = book.favorito==true? false:true
           }
         }
       ]

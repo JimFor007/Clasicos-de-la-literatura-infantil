@@ -10,6 +10,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { promise, element } from 'protractor';
 import { user } from '../models/usuario.model';
 import { Router } from '@angular/router';
+import { libros } from '../models/librosUsuario.model';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -233,6 +235,51 @@ export class TestService {
 
   }
 
+  
+  añadirLibro(uid:string, titulo:string, imagen: string){
+    this.db.collection('users').doc(uid).update({
+      libros: firebase.firestore.FieldValue.arrayUnion({
+        titulo:titulo,
+        imagen:imagen,
+        apunte:"",
+        favorito:true
+      })
+    })
+  }
+
+  eliminarLibro(uid:string, titulo:string,imagen:string, apunte:string){
+    this.db.collection('users').doc(uid).update({
+      libros: firebase.firestore.FieldValue.arrayRemove({
+        apunte:apunte,
+        favorito:true,
+        titulo:titulo,
+        imagen:imagen,
+      })
+    })
+  }
+
+  guardarApunte(uid:string, apunteNuevo:string,titulo:string,imagen:string){
+    this.db.collection('users').doc(uid).update({
+      libros:{
+        apunte:apunteNuevo,
+        favorito:true,
+        imagen:imagen,
+        titulo:titulo,
+      }
+    })
+
+    /**
+     * {
+      libros:{
+        apunte:apunte,
+        favorito:true,
+        titulo:titulo,
+        imagen:imagen,
+      }
+    }
+     */
+  }
+
   getUserData(id: string){
     //return this.db.collection('usersTest').doc(id).snapshotChanges();
     return this.usersCollection.doc<userFavorite>(id).valueChanges();
@@ -283,8 +330,21 @@ export class TestService {
 
 // Crear usuario con lista de libros
    create(uid: string){
+    let aux=this.getTodos();
       let libros = [];
-      this.db.collection('users').doc(uid).set({libros});
+      aux.forEach(e => {
+        for (let i = 0; i < e.length; i++) {
+          for (let j = 0; j < e[i].books.length; j++) {
+            libros.push({titulo:e[i].books[j].titulo,
+              imagen: e[i].books[j].imagen, 
+              apunte:"",
+              favorito:false
+            })
+          }
+        }
+        this.db.collection('users').doc(uid).set({libros});
+        
+      });
    }
   
    

@@ -20,11 +20,11 @@
         <ion-card *ngFor=" let book of author.books | filter: textoBuscar ">
           <ion-card-header>
             <ion-card-subtitle style="text-align: center;">{{book.titulo}}</ion-card-subtitle>
-            <div *ngIf="book.favorito == false">
-              <ion-icon (click)= "presentAlertConfirm(book)" name= "heart-outline"></ion-icon>
-            </div>
-            <div *ngIf="book.favorito == true">
-              <ion-icon (click)= "presentAlertConfirm(book)" name= "heart"></ion-icon>
+            <!--<div *ngIf="book.favorito == false">
+              <ion-icon (click)=  name= "heart-outline"></ion-icon>
+            </div>-->
+            <div>
+              <ion-icon (click)= "addFav(book.titulo, book.imagen)" name= "heart"></ion-icon>
             </div>
           </ion-card-header>
           <img (click)=read(book.titulo) src="{{ book.imagen }}" />
