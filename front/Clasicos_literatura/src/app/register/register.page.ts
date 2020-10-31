@@ -6,6 +6,7 @@ import { TestService } from '../Services/test.service';
 import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { author } from '../models/author.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -29,7 +30,7 @@ export class RegisterPage implements OnInit {
     }
   };
   
-  constructor(public loadingController: LoadingController,private auth: AngularFireAuth, private service: TestService, public toastController: ToastController) { 
+  constructor(private router: Router,public loadingController: LoadingController,private auth: AngularFireAuth, private service: TestService, public toastController: ToastController) { 
     this.usuario ={
       correo:null,
       contrasena:null
@@ -52,6 +53,8 @@ export class RegisterPage implements OnInit {
           this.service.create(uid);
           loading.dismiss();
           this.presentToast('Usuario Creado exitosamente');
+          this.router.navigate(["/index"]);
+
       }
     )
   }

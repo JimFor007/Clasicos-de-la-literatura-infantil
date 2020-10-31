@@ -27,13 +27,16 @@ export class FavoritesPage implements OnInit {
   ngOnInit() {
 
     this.testService.stateUser().subscribe(id=>{
+      if(id === null){ this.id=null}
+      else{
+      console.log(id);
       this.id=id.uid;
       this.testService.getUserData(id.uid).subscribe(data=>{
         this.books = data.libros
         console.log(this.books)
         this.length = data.libros.length;
         console.log(data.libros.length);
-      });
+      });}
     });    
   }
 
@@ -43,6 +46,10 @@ export class FavoritesPage implements OnInit {
   name(book: string){
     this.router.navigate(["/notes", book]);
     console.log(book)
+}
+
+route(ruta:string){
+  this.router.navigate(["/"+ruta]);
 }
 
 

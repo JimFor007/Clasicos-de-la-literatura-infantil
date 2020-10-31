@@ -37,8 +37,35 @@
 </ion-content>
 
 <ion-content *ngIf="length==0">
-
   <img src="../../../assets/images/nada.gif" style="width: 100%; height: 95%;">
+</ion-content>
+
+<ion-content *ngIf="id==null">
+
+ 
+    <ion-card style="
+    width: 300px;text-align: center;
+    margin-left: 50%;
+    justify-content: center;
+    top: 51px;
+    transform: translateX(-50%);">
+      <ion-card-header>
+        <ion-card-title>No estas autenticado</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Para acceder a esta seccion debes tener una cuenta o debes iniciar sesion
+        <br>
+        <br>
+        <div>
+        <ion-button color="success" expand="block" (click)="route('login')">Iniciar sesion</ion-button>
+        <ion-button color="success"  expand="block" color="secondary" (click)="route('register')">Registrarse</ion-button>
+      </div>
+
+
+      </ion-card-content>
+    </ion-card>
+  
 
 
 </ion-content>
