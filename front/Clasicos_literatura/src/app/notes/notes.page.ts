@@ -14,6 +14,7 @@ export class NotesPage implements OnInit {
   libro:string;
   imagen:string;
 
+  apunteAntiguo:string
   apunte:string
   book:[]=[];
   books: any[]=[];
@@ -33,7 +34,7 @@ export class NotesPage implements OnInit {
   }
 
   guardarApunte(){
-    this.testService.guardarApunte(this.id,this.apunte,this.libro,this.imagen);
+    this.testService.guardarApunte(this.id,this.apunteAntiguo,this.apunte,this.libro,this.imagen);
   }
 
   ngOnInit() {
@@ -44,13 +45,12 @@ export class NotesPage implements OnInit {
         this.testService.getUserData(id.uid).subscribe(data=>{
           this.books = data.libros
           for (let i = 0; i < this.books.length; i++) {
-            console.log(this.books[i])
             if(this.books[i].titulo==this.libro){
               this.imagen=this.books[i].imagen;
-              this.apunte=this.books[i].apunte;
+              this.apunteAntiguo=this.books[i].apunte;
             }
           }
-          console.log(data.libros.length);
+          
         });
       });
   });

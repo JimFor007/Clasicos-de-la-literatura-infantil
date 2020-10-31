@@ -239,10 +239,10 @@ export class TestService {
   añadirLibro(uid:string, titulo:string, imagen: string){
     this.db.collection('users').doc(uid).update({
       libros: firebase.firestore.FieldValue.arrayUnion({
+        apunte:"",
+        favorito:true,
         titulo:titulo,
         imagen:imagen,
-        apunte:"",
-        favorito:true
       })
     })
   }
@@ -258,26 +258,28 @@ export class TestService {
     })
   }
 
-  guardarApunte(uid:string, apunteNuevo:string,titulo:string,imagen:string){
+  guardarApunte(uid:string,apunte:string ,apunteNuevo:string,titulo:string,imagen:string){
     this.db.collection('users').doc(uid).update({
-      libros:{
-        apunte:apunteNuevo,
-        favorito:true,
-        imagen:imagen,
-        titulo:titulo,
-      }
-    })
-
-    /**
-     * {
-      libros:{
+      libros:firebase.firestore.FieldValue.arrayRemove({
         apunte:apunte,
         favorito:true,
         titulo:titulo,
         imagen:imagen,
-      }
-    }
-     */
+      })
+    })
+
+    this.db.collection('users').doc(uid).update({
+      libros:firebase.firestore.FieldValue.arrayUnion({
+        apunte:apunteNuevo,
+        favorito:true,
+        titulo:titulo,
+        imagen:imagen,
+      })
+    })
+    
+    
+    //console.log(this.db.collection('users').doc(uid).collection('libros')
+  
   }
 
   getUserData(id: string){
@@ -330,21 +332,8 @@ export class TestService {
 
 // Crear usuario con lista de libros
    create(uid: string){
-    let aux=this.getTodos();
       let libros = [];
-      aux.forEach(e => {
-        for (let i = 0; i < e.length; i++) {
-          for (let j = 0; j < e[i].books.length; j++) {
-            libros.push({titulo:e[i].books[j].titulo,
-              imagen: e[i].books[j].imagen, 
-              apunte:"",
-              favorito:false
-            })
-          }
-        }
-        this.db.collection('users').doc(uid).set({libros});
-        
-      });
+      this.db.collection('users').doc(uid).set({libros});
    }
   
    
