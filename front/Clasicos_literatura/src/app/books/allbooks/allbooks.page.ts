@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { book } from 'src/app/models/libro.model';
 import { AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { userFavorite } from 'src/app/models/userFavorite.model';
 @Component({
   selector: 'app-allbooks',
   templateUrl: './allbooks.page.html',
@@ -20,22 +21,36 @@ export class AllbooksPage implements OnInit {
   users: any[]=[];
   books: any[]=[];
   id: string;
-  constructor(private testService: TestService, private router: Router, public alertController: AlertController) { 
-  }
+  apunte:string;
+
+  booksFav: any[] = [];
+
+
+  constructor(private testService: TestService, private router: Router, public alertController: AlertController) {}
 
   ngOnInit() {
     this.testService.getTodos().subscribe(
       data=>{
         this.authors= data;
+        console.log(this.authors);
       });
       this.testService.stateUser().subscribe(id=>{
+        
+        if(id===null){this.id=null}
+        else{
         this.id=id.uid;
         this.testService.getUserData(id.uid).subscribe(data=>{
           this.users = data.libros          
-        });
-      });
-      
-    }
+        })
+        }
+      })
+
+        this.testService.getUserData(this.id).subscribe(
+          favorites =>{
+            this.booksFav=  favorites.libros;
+          }
+        )
+      }
 
   addFav(titulo: string, imagen:string,book:book){
     let exist=false;
@@ -50,8 +65,40 @@ export class AllbooksPage implements OnInit {
       this.presentAlertConfirm();
     }
   }
+
   search(event){
     this.textoBuscar=event.detail.value
+  }
+  async unFavConfirm(titulo:string,imagen:string) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: "¿Esta seguro que desea eliminar este libro de favoritos?",
+      message: 'se eliminara <strong>'+titulo+'</strong> de sus favoritos',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+          }
+        },
+         {
+          text: 'Okay',
+          handler: () => {  
+            
+            this.booksFav.find(booksFav=> {
+             if( booksFav.titulo=== titulo){
+             this.testService.eliminarLibro(this.id,titulo,imagen,booksFav.apunte);
+             }    
+            }
+              );
+            
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   
@@ -78,6 +125,19 @@ export class AllbooksPage implements OnInit {
   }
   read(book: string){
     this.router.navigate(["/lecturalibro",book]);
+  }
+
+  stateicon(nombre: string){
+    
+   if(this.booksFav.find(booksFav=> booksFav.titulo   === nombre) === undefined){
+    return 0;
+   }
+   else{
+     return 1;
+   }
+
+
+
   }
 
 }
