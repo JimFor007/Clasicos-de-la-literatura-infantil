@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TestService } from '../../Services/test.service';
 import { author } from 'src/app/models/author.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { book } from 'src/app/models/libro.model';
 import { AlertController } from '@ionic/angular';
-import { Storage } from '@ionic/storage';
-import { userFavorite } from 'src/app/models/userFavorite.model';
+
 @Component({
   selector: 'app-allbooks',
   templateUrl: './allbooks.page.html',
@@ -32,7 +30,6 @@ export class AllbooksPage implements OnInit {
     this.testService.getTodos().subscribe(
       data=>{
         this.authors= data;
-        console.log(this.authors);
       });
       this.testService.stateUser().subscribe(id=>{
         

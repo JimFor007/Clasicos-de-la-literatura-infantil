@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { author } from 'src/app/models/author.model';
 import { TestService } from 'src/app/Services/test.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ClassGetter } from '@angular/compiler/src/output/output_ast';
-import { Storage } from '@ionic/storage';
 import { book } from 'src/app/models/libro.model';
-import { promise } from 'protractor';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -80,13 +77,12 @@ export class QuizPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Finalizado',
-      //backdropDismiss: false,
       message: 'Su puntaje es: '+score+"/"+this.respuestas.length,
       buttons: [
          {
           text: 'Okay',
           handler: () => {
-            this.router2.navigate(['/allbooks'])
+            this.router2.navigate(['/books/todos'])
             this.answers=[];
           }
         }

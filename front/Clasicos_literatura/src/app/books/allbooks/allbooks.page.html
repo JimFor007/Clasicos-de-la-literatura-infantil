@@ -2,14 +2,12 @@
   <ion-toolbar>
     <ion-title style="text-align: center;">Todos los libros</ion-title>
     <ion-buttons>
-      
+
     </ion-buttons>
   </ion-toolbar>
 
   <ion-grid fixed style="background-color: white;">
-    <ion-searchbar animated
-                   (ionChange)="search($event)"
-    style="background-color: white;"></ion-searchbar>
+    <ion-searchbar animated (ionChange)="search($event)" style="background-color: white;"></ion-searchbar>
   </ion-grid>
 </ion-header>
 
@@ -20,24 +18,25 @@
         <ion-card *ngFor=" let book of author.books | filter: textoBuscar ">
           <ion-card-header>
             <ion-card-subtitle style="text-align: center;">{{book.titulo}}</ion-card-subtitle>
-            <!--<div *ngIf="book.favorito == false">
-              <ion-icon (click)=  name= "heart-outline"></ion-icon>
-            </div>-->
+
             <div>
-              <ion-icon style="color: #DDDDDD;;" name= "heart" *ngIf="id==null"></ion-icon>
-              <ion-icon (click)="unFavConfirm(book.titulo,book.imagen)" name= "heart" *ngIf="id!=null && stateicon(book.titulo)==1"></ion-icon>
-              <ion-icon (click)= "addFav(book.titulo, book.imagen)" name= "heart-outline" *ngIf="id!=null && stateicon(book.titulo)==0"></ion-icon>
+              <ion-icon style="color: #DDDDDD;;" name="heart" *ngIf="id==null"></ion-icon>
+              <ion-icon (click)="unFavConfirm(book.titulo,book.imagen)" name="heart"
+                *ngIf="id!=null && stateicon(book.titulo)==1"></ion-icon>
+              <ion-icon (click)="addFav(book.titulo, book.imagen)" name="heart-outline"
+                *ngIf="id!=null && stateicon(book.titulo)==0"></ion-icon>
             </div>
+
           </ion-card-header>
           <img (click)=read(book.titulo) src="{{ book.imagen }}" />
           <ion-card-content style="align-content: center;">
             <ion-grid>
               <ion-row>
                 <ion-col>
-                  <div *ngIf= "book.trivia==true">
-                    <ion-button (click)= "quiz(book.titulo)" expand="block" color="success">Quiz</ion-button>
+                  <div *ngIf="book.trivia==true">
+                    <ion-button (click)="quiz(book.titulo)" expand="block" color="success">Quiz</ion-button>
                   </div>
-                  <div *ngIf= "book.trivia==false">
+                  <div *ngIf="book.trivia==false">
                     <ion-button expand="block" color="medium">Quiz</ion-button>
                   </div>
                 </ion-col>

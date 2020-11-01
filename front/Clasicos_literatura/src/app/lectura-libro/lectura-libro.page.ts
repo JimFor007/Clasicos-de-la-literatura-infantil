@@ -3,7 +3,6 @@ import { author } from '../models/author.model';
 import { TestService } from '../Services/test.service';
 import { book } from '../models/libro.model';
 import { ActivatedRoute } from '@angular/router';
-import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 import { TtsService } from '../Services/tts.service';
 
 @Component({

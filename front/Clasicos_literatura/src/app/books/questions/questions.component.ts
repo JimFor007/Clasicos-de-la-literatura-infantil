@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 import { author } from 'src/app/models/author.model';
 import { TestService } from 'src/app/Services/test.service';
 import { book } from 'src/app/models/libro.model';
+
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
@@ -21,6 +22,7 @@ export class QuestionsComponent implements OnInit {
   choosed:string;
   tetha:string;
   bethas:string[] = []
+
   //respuestas correctas
   respuestas:string[]=[];
   
@@ -86,6 +88,7 @@ export class QuestionsComponent implements OnInit {
     }
     this.presentAlertConfirm(score);
   }
+  
   //push the selected option if the quiz is not end, and change question
   //at end verify answers and reset
   add(){

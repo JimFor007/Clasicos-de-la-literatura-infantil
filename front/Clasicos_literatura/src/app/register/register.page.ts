@@ -35,7 +35,6 @@ export class RegisterPage implements OnInit {
       correo:null,
       contrasena:null
     }
-    console.log(this.usuario)
   }
 
   ngOnInit() {
@@ -61,7 +60,6 @@ export class RegisterPage implements OnInit {
 
   validar(){
     this.usuario.correo= this.loginForm.value.userEmail;
-    console.log(this.usuario);
 
     this.service.createUser(this.usuario.correo,this.usuario.contrasena).then(data=>{
       this.presentLoading(data.user.uid);

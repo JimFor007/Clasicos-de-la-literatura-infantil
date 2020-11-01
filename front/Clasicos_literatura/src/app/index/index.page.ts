@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TestService } from '../Services/test.service';
 import { author } from '../models/author.model';
-import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore'
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {AngularFirestore} from '@angular/fire/firestore'
 import { AlertController } from '@ionic/angular';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { LoadingController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 

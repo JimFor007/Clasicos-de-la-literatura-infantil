@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TestService } from '../Services/test.service';
-import { author } from '../models/author.model';
-import { book } from '../models/libro.model';
 
 @Component({
   selector: 'app-notes',
