@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
 
   login(email: string, password:string){  
     this.auth.login(email,password).then(res=>{
-      this.presentToast('Bienvenido');
+      this.presentToast('Bienvenido '+ email+' !!');
       this.Router.navigate(['/index'])
     }).catch(err =>{
       this.presentToast('Usuario invalido o inexistente, Pruebe de nuevo');

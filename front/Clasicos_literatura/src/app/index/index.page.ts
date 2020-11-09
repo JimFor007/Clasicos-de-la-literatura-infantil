@@ -23,18 +23,6 @@ prueba: any;
 
   constructor(public toastController: ToastController,public loadingController: LoadingController,private test: TestService, db: AngularFirestore,public alertController: AlertController) {
     this.Verifiacion();
-    
-    /*
-    -------//--CON ESTA LINEA SE AGREGA LOS DATOS A FIRESTORE ( IMPORTANTE: DEJARLO COMENTADO POR SI SE LLEGA A BORRAR DEL FIRESTORE) //--------------
-    
-    this.authors = test.authors;
-    console.log(this.authors); 
-    for(let i=0 ; i<this.authors.length ; i++){
-    db.collection('authors')
-                .add(this.authors[i]);
-    console.log('posicion' , i , 'agregada');
-    }*/
-
   }
 
   ngOnInit() {
