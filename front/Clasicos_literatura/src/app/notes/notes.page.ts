@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TestService } from '../Services/test.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-notes',
@@ -19,8 +20,14 @@ export class NotesPage implements OnInit {
   text:string;
   id:string;
 
-  constructor(private router: ActivatedRoute, private testService: TestService) { 
-    
+  constructor(private router: ActivatedRoute, private testService: TestService, public toastController: ToastController) { }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Apunte guardado',
+      duration: 2000
+    });
+    toast.present();
   }
 
   findBook(){
@@ -33,6 +40,7 @@ export class NotesPage implements OnInit {
 
   guardarApunte(){
     this.testService.guardarApunte(this.id,this.apunteAntiguo,this.apunte,this.libro,this.imagen);
+    this.presentToast();
   }
 
   ngOnInit() {
@@ -48,12 +56,11 @@ export class NotesPage implements OnInit {
               this.apunteAntiguo=this.books[i].apunte;
             }
           }
-          
         });
       });
   });
-  
-  
   }
+
+
 
 }

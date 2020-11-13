@@ -7,8 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div style=" text-align: left; background-color: {{backgroundColor}}">
+<ion-content style="--ion-background-color:{{backgroundColor}};" fullscreen>
+  <div style="text-align: left; background-color: {{backgroundColor}}">
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -28,11 +28,16 @@
     <ion-row>
       <ion-col><ion-icon (click)="speech()"  name="volume-medium-outline"></ion-icon></ion-col>
       <ion-col><ion-icon (click)="stopSpeech()" name="volume-mute-outline"></ion-icon></ion-col>
-      <ion-col><ion-icon (click)="zoom()"name="search-outline"></ion-icon></ion-col>
+      <ion-col><ion-icon (click)="zoom()"name="add-circle-outline"></ion-icon></ion-col>
       <ion-col><ion-icon (click)="backPage()" name="chevron-back-outline"></ion-icon></ion-col>
       <ion-col><ion-icon (click)="nextPage()" name="chevron-forward-outline"></ion-icon></ion-col>
       <ion-col>
         <ion-icon (click)="noctMode()"name="eye-outline"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-icon (click)="name()"name="create-outline"></ion-icon>
+        </div>
       </ion-col>
     </ion-row>
   </ion-toolbar>

@@ -4,7 +4,7 @@ import { TestService } from '../Services/test.service';
 import { book } from '../models/libro.model';
 import { ActivatedRoute } from '@angular/router';
 import { TtsService } from '../Services/tts.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-lectura-libro',
   templateUrl: './lectura-libro.page.html',
@@ -14,6 +14,8 @@ export class LecturaLibroPage implements OnInit {
   authors: author[];
   bookTitle: string[] = []
   bookContent: string[] = []
+  users: any[]=[];
+  id: string;
   initialContent;
   initalPage;
   book1:book;
@@ -25,7 +27,7 @@ export class LecturaLibroPage implements OnInit {
   textSize: string=this.sizeText[0];
 
 
-  constructor(private testService: TestService, private router: ActivatedRoute, private _stts: TtsService) {}
+  constructor(private router2: Router, private testService: TestService, private router: ActivatedRoute, private _stts: TtsService) {}
 
    findBook(title: string){
     this.authors.forEach(author => {
@@ -69,15 +71,44 @@ export class LecturaLibroPage implements OnInit {
         });
         this.findBook(this.libro)
         this.readBook();
-          this.initalPage=this.book1.capitulos[0].titulo
-          this.initialContent=this.book1.capitulos[0].contenido
+        this.initalPage=this.book1.capitulos[0].titulo
+        this.initialContent=this.book1.capitulos[0].contenido
       });
+      this.testService.stateUser().subscribe(id=>{
+        if(id===null){this.id=null}
+        else{
+        this.id=id.uid;
+        this.testService.getUserData(id.uid).subscribe(data=>{
+          this.users = data.libros  
+        })
+        }
+      })
   }
 
-  
+  name(){
+    this.addFav();
+    this.router2.navigate(["/notes", this.libro]);
+  }
+
+  addFav(){
+    let exist=false;
+    for(let i=0;i<this.users.length;i++) {
+      if(this.users[i].titulo==this.libro){
+        exist=true; 
+        return;
+      }
+    }
+    if(!exist){
+      this.testService.añadirLibro(this.id,this.libro, this.book1.imagen)
+    }
+  }
 
   zoom(){
-    this.textSize=this.sizeText[this.sizeText.indexOf(this.textSize)+1];
+    if(this.sizeText.indexOf(this.textSize)<this.sizeText.length-1){
+      this.textSize=this.sizeText[this.sizeText.indexOf(this.textSize)+1]
+    }else if(this.sizeText.indexOf(this.textSize)==this.sizeText.length-1){
+      this.textSize=this.sizeText[0];
+    }
   }
 
   backPage(){

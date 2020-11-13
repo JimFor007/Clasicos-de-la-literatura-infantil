@@ -84,6 +84,7 @@ export class QuizPage implements OnInit {
           handler: () => {
             this.router2.navigate(['/books/todos'])
             this.answers=[];
+            this.choosed=null
           }
         }
       ]

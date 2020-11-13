@@ -32,7 +32,6 @@ export class AllbooksPage implements OnInit {
         this.authors= data;
       });
       this.testService.stateUser().subscribe(id=>{
-        
         if(id===null){this.id=null}
         else{
         this.id=id.uid;
@@ -42,9 +41,9 @@ export class AllbooksPage implements OnInit {
         })
         }
       })
-      }
+    }
 
-  addFav(titulo: string, imagen:string,book:book){
+  addFav(titulo: string, imagen:string){
     let exist=false;
     for(let i=0;i<this.users.length;i++) {
       if(this.users[i].titulo==titulo){
