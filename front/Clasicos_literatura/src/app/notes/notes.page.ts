@@ -13,8 +13,8 @@ export class NotesPage implements OnInit {
   libro:string;
   imagen:string;
 
-  apunteAntiguo:string
-  apunte:string
+  apunteAntiguo:string;
+  apunte:string;
   book:[]=[];
   books: any[]=[];
   text:string;
@@ -38,8 +38,8 @@ export class NotesPage implements OnInit {
     })
   }
 
-  guardarApunte(){
-    this.testService.guardarApunte(this.id,this.apunteAntiguo,this.apunte,this.libro,this.imagen);
+  guardarApunte(apunte:string){
+    this.testService.guardarApunte(this.id,this.apunteAntiguo,apunte,this.libro,this.imagen);
     this.presentToast();
   }
 

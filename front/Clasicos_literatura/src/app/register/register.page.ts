@@ -77,7 +77,7 @@ export class RegisterPage implements OnInit {
     toast.present();
    }
 
-   estadosForm(estado:FormGroup){
+   estadosForm(estado:boolean){
     if(!estado){
       return 0;
     }
