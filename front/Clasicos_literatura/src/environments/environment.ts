@@ -7,7 +7,7 @@ import { TestService } from 'src/app/Services/test.service';
 import { author } from 'src/app/models/author.model';
 
 export const environment = {
-  production: false,
+  production: true,
   firebaseConfig : {
     apiKey: "AIzaSyANX4wf06IfTCF4lKvTdeGC0jcBzSLWDqo",
     authDomain: "clasicosliteraturainfantil.firebaseapp.com",
