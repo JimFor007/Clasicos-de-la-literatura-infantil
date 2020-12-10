@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 import { IonicStorageModule } from '@ionic/storage';
 import { LecturaPipe } from './lectura.pipe';
 import { PipesModule } from './pipes/pipes.module';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AngularFireModule } from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth'
 import { environment } from '../environments/environment';

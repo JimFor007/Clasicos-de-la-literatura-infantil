@@ -123,6 +123,9 @@ prueba: any;
     await alert.present();
   }
 
+  redirect(){
+    
+  }
   logOut(){
     this.test.logout();
   }

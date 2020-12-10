@@ -42,6 +42,38 @@ export class TestService {
 
   }
 
+  añadirAutor(nombre:string, image:string, biography:string, birthDate:string){
+    this.db.collection('authors').add({
+      biography:biography,
+      birthDate:birthDate,
+      image:image,
+      name: nombre
+    })
+  }
+
+  añadirLibroAutor(autor:string){
+    this.db.collection('authors').add({
+      books:[{
+        titulo:'',
+        trivia:false,
+        capitulos:[{
+          titulo:''
+        },{
+          titulo:''
+        }],
+      }]
+    })
+  }
+
+  añadirQuiz(autor:string){
+    quizes:[{
+      correctAnswer:'',
+      option1:'',
+      option2:'',
+      option3:'',
+      question:''
+    }]
+  }
 
   añadirLibro(uid: string, titulo: string, imagen: string) {
     this.db.collection('users').doc(uid).update({
