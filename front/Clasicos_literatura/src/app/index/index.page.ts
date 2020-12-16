@@ -28,6 +28,15 @@ prueba: any;
   ngOnInit() {
   }
 
+  playVideo(){
+    /*this.videoPlayer.play('../../../assets/videos/Orientacion.mp4').then(() => {
+    console.log('video completed');
+    }).catch(err => {
+    console.log(err);
+    });*/
+    window.open("https://youtu.be/hfOcnTU6LXQ", '_system');
+  }
+
   async presentToast(message:string) {
     const toast = await this.toastController.create({
       message,

@@ -42,16 +42,16 @@ export class LecturaLibroPage implements OnInit {
   }
   
   speech(){
-    let text: string;
+    let text= "";
     text=this.bookTitle[0]+" "+this.bookContent[0]+" ";
     for (let i = 1; i < this.bookContent.length; i++) {
       text=text+" "+this.bookTitle[i]+" "+this.bookContent[i]+" ";
     }
-    console.log(text)
     this._stts.discurso(text);
   }
 
   stopSpeech(){
+    console.log(" ")
     this._stts.discurso(" ");
   }
 
