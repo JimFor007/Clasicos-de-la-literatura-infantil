@@ -4,6 +4,7 @@ import { author } from 'src/app/models/author.model';
 import { Router } from '@angular/router';
 import { book } from 'src/app/models/libro.model';
 import { AlertController } from '@ionic/angular';
+import { CookieService } from 'ngx-cookie';
 
 @Component({
   selector: 'app-allbooks',
@@ -22,16 +23,27 @@ export class AllbooksPage implements OnInit {
   apunte:string;
 
   booksFav: any[] = [];
+  keyUser = '&I%U%$234';
 
-
-  constructor(private testService: TestService, private router: Router, public alertController: AlertController) {}
+  constructor(private _cookieService: CookieService,private testService: TestService, private router: Router, public alertController: AlertController) {}
 
   ngOnInit() {
     this.testService.getTodos().subscribe(
       data=>{
         this.authors= data;
       });
-      this.testService.stateUser().subscribe(id=>{
+
+      if(this._cookieService.get(this.keyUser) == undefined || this._cookieService.get(this.keyUser) == null || this._cookieService.get(this.keyUser) == ''){
+        this.id= null;
+      }
+      else{
+        this.id= this._cookieService.get(this.keyUser);
+        this.testService.getUserData(this._cookieService.get(this.keyUser)).subscribe(data=>{
+          this.users = data.libros    
+          this.booksFav=  data.libros;      
+        })
+      }   
+      /*this.testService.stateUser().subscribe(id=>{
         if(id===null){this.id=null}
         else{
         this.id=id.uid;
@@ -40,7 +52,7 @@ export class AllbooksPage implements OnInit {
           this.booksFav=  data.libros;      
         })
         }
-      })
+      })*/
     }
 
   addFav(titulo: string, imagen:string){

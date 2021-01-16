@@ -7,6 +7,7 @@ import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { author } from '../models/author.model';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie';
 
 @Component({
   selector: 'app-register',
@@ -39,35 +40,56 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
   }
-  async presentLoading(uid: string) {
+  async presentLoading(uid: string,contrasena:string) {
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
-      message: 'Registrando usuario'
+      message: 'Registrando usuario...'
     });
     await loading.present();
     
     this.service.getTodos().subscribe(
       data=>{
         this.todoslibros = data;
-          this.service.create(uid);
+          this.service.create(uid,contrasena);
+          this.usuario.correo=null;
+          this.usuario.contrasena=null;
           loading.dismiss();
           this.presentToast('Usuario Creado exitosamente');
-          this.router.navigate(["/index"]);
+          this.router.navigate(["/login"]);
 
       }
     )
   }
 
-  validar(){
+  async validar(){
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Verificando Usuario...'
+    });
+    await loading.present();
     this.usuario.correo= this.loginForm.value.userEmail;
+   // this.presentLoading(this.usuario.correo, this.usuario.contrasena);
+    this.service.validateUSER(this.usuario.correo).then(
+      result=>{
+        if(result == true){
+          loading.dismiss();
+          this.presentToast('Usuario existente, pruebe con otro correo ');
 
-    this.service.createUser(this.usuario.correo,this.usuario.contrasena).then(data=>{
+        }else{
+          loading.dismiss();
+          this.presentLoading(this.usuario.correo, this.usuario.contrasena);
+
+        }
+      }
+    );
+
+   /* this.service.createUser(this.usuario.correo,this.usuario.contrasena).then(data=>{
       this.presentLoading(data.user.uid);
     },
     err=>{
         this.presentToast('Usuario existente, pruebe con otro correo ');
-    });
-      }
+    });*/
+    }
 
   async presentToast(message:string) {
     const toast = await this.toastController.create({
