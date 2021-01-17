@@ -56,18 +56,19 @@
     <ion-card-content>
           <ion-item>
             <ion-label>Seleccionar autor</ion-label>
-            <ion-select>
+            <ion-select id="authorL" [(ngModel)]="authorL">
               <ion-select-option *ngFor="let author of authors "> {{author.name}}</ion-select-option>
             </ion-select>
-          </ion-item>
+          </ion-item
+          >
         <ion-item style="margin-right: 10px; margin-left: 10px;">
           <ion-label position="stacked">Titulo Libro</ion-label>
-          <ion-input required placeholder="Ej. Los tres cerditos" name="bio" type="text"></ion-input>
+          <ion-input required placeholder="Ej. Los tres cerditos" name="tituloLibro" type="text" [(ngModel)]="tituloLibro"></ion-input>
         </ion-item>
         <ion-row>
           <ion-col></ion-col>
           <ion-col>
-            <ion-button expand="full" color="secondary">
+            <ion-button (click)=addBook() expand="full" color="secondary" click>
               Añadir
             </ion-button>
           </ion-col>
