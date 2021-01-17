@@ -18,25 +18,29 @@
         <ion-list>
           <ion-item style="margin-right: 10px; margin-left: 10px;">
             <ion-label position="stacked">Nombre del autor</ion-label>
-            <ion-input required placeholder="Ej. Charles Bukowski" type="text" name="autorName" [(ngModel)]="autor.autorName"></ion-input>
+            <ion-input required placeholder="Ej. Charles Bukowski" type="text" name="autorName"
+              [(ngModel)]="autor.autorName"></ion-input>
           </ion-item>
           <ion-item style="margin-right: 10px; margin-left: 10px;">
             <ion-label position="stacked"> Imagen</ion-label>
-            <ion-input  required placeholder="../../../assets/images/" name="imagen" type="text" [(ngModel)]="autor.image"></ion-input>
+            <ion-input required placeholder="../../../assets/images/" name="imagen" type="file" accept=".png, .jpg"
+              [(ngModel)]="autor.image"></ion-input>
           </ion-item>
           <ion-item style="margin-right: 10px; margin-left: 10px;">
             <ion-label position="stacked"> Biografía</ion-label>
-            <ion-input  required placeholder="Ej. Nacio en una villa...." name="biography" type="text" [(ngModel)]="autor.bio"></ion-input>
+            <ion-input required placeholder="Ej. Nacio en una villa...." name="biography" type="text"
+              [(ngModel)]="autor.bio"></ion-input>
           </ion-item>
           <ion-item style="margin-right: 10px; margin-left: 10px;">
             <ion-label position="stacked">Fecha de nacimiento</ion-label>
-            <ion-input  required placeholder="Ej. 1999/04/03" name="birthDate" type="date" [(ngModel)]="autor.birthDate"></ion-input>
+            <ion-input required placeholder="Ej. 1999/04/03" name="birthDate" type="date" [(ngModel)]="autor.birthDate">
+            </ion-input>
           </ion-item>
         </ion-list>
         <ion-row>
           <ion-col></ion-col>
           <ion-col>
-            <ion-button color="secondary" type="submit">
+            <ion-button expand="block" color="secondary" type="submit">
               Añadir
             </ion-button>
           </ion-col>
@@ -48,31 +52,48 @@
 
 
   <!-- AÑADIR LIBRO Y CAPITULO-->
-  
+
+  <!-- AÑADIR LIBRO -->
   <ion-card>
     <ion-card-header>
       <ion-title>Añadir libro</ion-title>
     </ion-card-header>
     <ion-card-content>
-          <ion-item>
-            <ion-label>Seleccionar autor</ion-label>
-            <ion-select>
-              <ion-select-option *ngFor="let author of authors "> {{author.name}}</ion-select-option>
-            </ion-select>
-          </ion-item>
-        <ion-item style="margin-right: 10px; margin-left: 10px;">
-          <ion-label position="stacked">Titulo Libro</ion-label>
-          <ion-input required placeholder="Ej. Los tres cerditos" name="bio" type="text"></ion-input>
+      <ion-item>
+        <ion-label>Seleccionar autor</ion-label>
+        <ion-select>
+          <ion-select-option *ngFor="let author of authors "> {{author.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item style="margin-right: 10px; margin-left: 10px;">
+        <ion-label position="stacked">Titulo Libro</ion-label>
+        <ion-input required placeholder="Ej. Los tres cerditos" name="bio" type="text"></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+          <ion-button expand="full" color="secondary">
+            Añadir
+          </ion-button>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-card-content>
+
+
+    <!-- AÑADIR CAPITULO -->
+    <ion-card>
+      <ion-card-header>
+        <ion-title>Añadir capitulo</ion-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label>Seleccionar autor</ion-label>
+          <ion-select>
+            <ion-select-option *ngFor="let author of authors"> {{author.name}}</ion-select-option>
+          </ion-select>
         </ion-item>
-        <ion-row>
-          <ion-col></ion-col>
-          <ion-col>
-            <ion-button expand="full" color="secondary">
-              Añadir
-            </ion-button>
-          </ion-col>
-          <ion-col></ion-col>
-        </ion-row>
         <ion-item>
           <ion-label>Seleccionar libro</ion-label>
           <ion-select>
@@ -83,16 +104,17 @@
           <ion-label position="stacked">Añadir capitulo</ion-label>
           <ion-input required placeholder="Ej. Nacio en una villa...." name="bio" type="string"></ion-input>
         </ion-item>
-      <ion-row>
-        <ion-col></ion-col>
-        <ion-col>
-          <ion-button  color="secondary">
-            Añadir
-          </ion-button>
-        </ion-col>
-        <ion-col></ion-col>
-      </ion-row>
-    </ion-card-content>
+        <ion-row>
+          <ion-col></ion-col>
+          <ion-col>
+            <ion-button expand="full" color="secondary">
+              Añadir
+            </ion-button>
+          </ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
   </ion-card>
 
 
@@ -104,24 +126,24 @@
       <ion-title>Añadir quiz</ion-title>
     </ion-card-header>
     <ion-card-content>
-          <ion-item>
-            <ion-label>Seleccionar libro</ion-label>
-            <ion-select>
-              <ion-select-option *ngFor="let n of [1,2] "> n</ion-select-option>
-            </ion-select>
-          </ion-item>
-        <ion-item style="margin-right: 10px; margin-left: 10px;">
-          <ion-label position="stacked">Añadir pregunta</ion-label>
-          <ion-input required placeholder="Ej. ¿Quién era...?" name="bio" type="string"></ion-input>
-        </ion-item>
-        <ion-item style="margin-right: 10px; margin-left: 10px;">
-            <ion-label position="stacked">Añadir respuesta</ion-label>
-            <ion-input required placeholder="Ej. Respuesta 1" name="bio" type="string"></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-label>Seleccionar libro</ion-label>
+        <ion-select>
+          <ion-select-option *ngFor="let n of [1,2] "> n</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item style="margin-right: 10px; margin-left: 10px;">
+        <ion-label position="stacked">Añadir pregunta</ion-label>
+        <ion-input required placeholder="Ej. ¿Quién era...?" name="bio" type="string"></ion-input>
+      </ion-item>
+      <ion-item style="margin-right: 10px; margin-left: 10px;">
+        <ion-label position="stacked">Añadir respuesta</ion-label>
+        <ion-input required placeholder="Ej. Respuesta 1" name="bio" type="string"></ion-input>
+      </ion-item>
       <ion-row>
         <ion-col></ion-col>
         <ion-col>
-          <ion-button color="secondary">
+          <ion-button expand="full" color="secondary">
             Añadir
           </ion-button>
         </ion-col>
