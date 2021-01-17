@@ -7,11 +7,15 @@ import { map } from 'rxjs/operators'
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
+import { CookieService } from 'ngx-cookie';
+import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestService {
+
+  keyUser = '&I%U%$234';
 
   private todosCollection: AngularFirestoreCollection<author>;
   todos: Observable<author[]>;
@@ -19,7 +23,7 @@ export class TestService {
   private usersCollection: AngularFirestoreCollection<any>;
   userFavorites: Observable<any>;
 
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth, private router: Router) {
+  constructor(private CookieService: CookieService,private db: AngularFirestore, private auth: AngularFireAuth, private router: Router) {
     this.todosCollection = db.collection<author>('authors');
     this.todos = this.todosCollection.snapshotChanges().pipe(map(
       actions => {
@@ -143,9 +147,15 @@ export class TestService {
   }
 
   logout() {
-    return this.auth.signOut().then(() => {
+    this.CookieService.remove(this.keyUser);
+    this.router.navigate(['/login']);
+
+
+
+
+  /*  return this.auth.signOut().then(() => {
       this.router.navigate(['/login'])
-    });
+    });*/
   }
 
   //estado del usuario
@@ -155,9 +165,20 @@ export class TestService {
   }
 
   // Crear usuario con lista de libros
-  create(uid: string) {
+  create(uid: string, contrasena:string) {
     let libros = [];
-    this.db.collection('users').doc(uid).set({ libros });
+    return this.db.collection('users').doc(uid).set({ contrasena, libros });
+  }
+
+  validateUSER(email:string){
+
+    var doc: Boolean;
+    return this.usersCollection.doc<userFavorite>(email).get().toPromise().then(
+      document=>{
+       doc= document.exists
+        return doc;
+      }
+    );
   }
 
 }

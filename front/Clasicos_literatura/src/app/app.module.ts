@@ -17,6 +17,7 @@ import {AngularFireAuthModule} from '@angular/fire/auth'
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import {TextToSpeech} from '@ionic-native/text-to-speech/ngx';
+import { CookieModule } from 'ngx-cookie';
 
 @NgModule({
   declarations: [AppComponent, LecturaPipe],
@@ -28,6 +29,7 @@ import {TextToSpeech} from '@ionic-native/text-to-speech/ngx';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule.enablePersistence({synchronizeTabs:true}),
+    CookieModule.forRoot(),
     AppRoutingModule,
     CommonModule,
     PipesModule,

@@ -19,13 +19,15 @@ export class BooksPage implements OnInit {
     this.count = 0;
     this.testService.getTodos().subscribe(
       data => {
+        console.log(data);
         this.authors = data;
-
+        console.log(this.authors);
         for (let i = 0; i < this.authors.length; i++) {
           this.count += this.authors[i].books.length;
         }
         this.books = this.count;
       }
+    
     );
   }
 

@@ -5,6 +5,8 @@ import {AngularFirestore} from '@angular/fire/firestore'
 import { AlertController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { CookieService } from 'ngx-cookie';
+import{Router} from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -19,13 +21,20 @@ email: string;
 name: string;
 
 prueba: any;
+key:string;
+keyUser = '&I%U%$234';
 
 
-  constructor(public toastController: ToastController,public loadingController: LoadingController,private test: TestService, db: AngularFirestore,public alertController: AlertController) {
-    this.Verifiacion();
+  constructor(private router: Router,private _cookieService: CookieService,public toastController: ToastController,public loadingController: LoadingController,private test: TestService, db: AngularFirestore,public alertController: AlertController) {
+    this.key = this._cookieService.get(this.keyUser);        
+    this.Verifiacion(this.key);
+  
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.key = this._cookieService.get(this.keyUser);
+    }, 3000);
   }
 
   playVideo(){
@@ -55,7 +64,7 @@ prueba: any;
 
     
  
-      if(this.email === null){
+      if(this._cookieService.get(this.keyUser) === null || this._cookieService.get(this.keyUser) === undefined){
         loading.dismiss();
         this.authFailed();
       }else{
@@ -65,9 +74,40 @@ prueba: any;
 
   }
 
-  async Verifiacion() {
+  async Verifiacion(key:string) {
 
-    this.prueba = this.test.stateUser();
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Verificando Usuario...'
+    });
+    await loading.present();
+
+    if(key == '' || key == undefined || key == null){
+      this.email = null;
+      loading.dismiss();
+    }
+    else{
+      this.email=key;
+      loading.dismiss()
+    }
+
+
+
+
+
+   /* this.test.stateUser().subscribe(data=>{
+      if(data === null){this.email = null;
+        loading.dismiss();
+    }
+      else{
+      this.email = data.email;
+      loading.dismiss();
+
+      }
+    }
+    ); */
+
+    /*this.prueba = this.test.stateUser();
     console.log(this.prueba);
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
@@ -85,7 +125,7 @@ prueba: any;
 
       }
     }
-    ); 
+    ); */
   }
 
 
@@ -136,7 +176,11 @@ prueba: any;
     
   }
   logOut(){
+    this.ngOnInit();
     this.test.logout();
+  }
+  loginpr(){
+    this.router.navigate(['/login'])
   }
 
 }
