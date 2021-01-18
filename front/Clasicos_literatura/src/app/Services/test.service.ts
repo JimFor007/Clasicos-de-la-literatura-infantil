@@ -90,6 +90,12 @@ export class TestService {
     })
   }
 
+  añadirL(book:any) {
+    this.db.collection('authors').doc("XtMPgxsmXP7jE8qpALXx").update({
+      books: book
+    })
+  }
+
   eliminarLibro(uid: string, titulo: string, imagen: string, apunte: string) {
     this.db.collection('users').doc(uid).update({
       libros: firebase.firestore.FieldValue.arrayRemove({
