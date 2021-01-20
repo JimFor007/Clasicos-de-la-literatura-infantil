@@ -90,9 +90,9 @@ export class TestService {
     })
   }
 
-  añadirL(book:any) {
+  añadirL(id: String, book:any) {
     this.db.collection('authors').doc("XtMPgxsmXP7jE8qpALXx").update({
-      books: book
+      books: firebase.firestore.FieldValue.arrayUnion(book)
     })
   }
 

@@ -11,6 +11,7 @@ export class AdminPage implements OnInit {
   authors: author[] = [];
 
   selectedAuthor: any;
+  idAuthor: String;
 
   autor = {
     autorName: '',
@@ -39,7 +40,7 @@ export class AdminPage implements OnInit {
   option2: String
   question: String
 
-  books = []
+  books: {}
   capitulos = []
   quiz = []
 
@@ -62,8 +63,6 @@ export class AdminPage implements OnInit {
     this.capitulos.push(capitulo);
     this.tituloCapitulo = ''
     this.contenido = ''
-    console.log(this.capitulos)
-    console.log(this.authors)
   }
 
   addQuiz() {
@@ -79,7 +78,6 @@ export class AdminPage implements OnInit {
     this.option1 = ''
     this.option2 = ''
     this.question = ''
-    console.log(this.quiz)
   }
 
   addBook() {
@@ -88,15 +86,22 @@ export class AdminPage implements OnInit {
       favorito: false,
       imagen: '',
       quiz: this.quiz,
+      titulo: this.tituloLibro,
       trivia: this.quiz.length == 0 ? false : true
     }
-    this.books.push(book)
+    this.books = book
     this.tituloLibro = ''
-    console.log(this.books)
-    this.testService.añadirL(this.books)
+    this.testService.añadirL(this.idAuthor, this.books)
     this.books = []
     this.capitulos = []
     this.quiz = []
+  }
+
+  searchAuthor() {
+    this.authors.forEach(element => {
+      if (element.name.replace(/ /g, "") == this.selectedAuthor.replace(/ /g, ""))
+        this.idAuthor = element.id
+    });
   }
 
   onSubmitTemplate() {
